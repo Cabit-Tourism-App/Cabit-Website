@@ -1,0 +1,61 @@
+.Image-Card-Design {
+    background: rgba(255, 255, 255, 0.3); /* Soft transparency */
+    border: 1px solid rgba(255, 255, 255, 0.4); /* Lighter border */
+    border-radius: 10px; /* Smooth rounded corners */
+    padding: 7px;
+    margin: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+    backdrop-filter: blur(10px); /* Glass effect */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth animation */
+ /* Places it above Home_Page_Background */
+ 	 overflow-y: auto;  /* Enables vertical scrolling */
+    max-height: 400px;
+}
+.Image-Card-Design::-webkit-scrollbar {
+    display: none; /* Hides scrollbar in Chrome, Safari, and Edge */
+}
+/* Hover effect for a premium touch */
+.Image-Card-Design:hover {
+    transform: translateY(-5px) scale(1.08); /* Moves up & scales at once */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+
+.Image_Cards_Image {
+    height: 60%;
+    border-radius: 8px; /* Slight rounding for classiness */
+    overflow: hidden;
+}
+
+.Image_Cards_Image img {
+
+	border: 1px solid rgba(255, 255, 255, 0.4);
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures proper fit */
+    border-radius: 8px; /* Smooth rounded corners */
+    filter: brightness(1.1) contrast(1.2) saturate(1.3); /* Enhances vibrancy */
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.3); /* Soft inner glow */
+    backdrop-filter: blur(2px); /* Slight blurring for a glass effect */
+}
+
+/* Text & heading styling */
+.Image-Card-Design h3 {
+    font-size: 1.2rem;
+    color: black;
+    margin: 10px 0 5px;
+    font-weight: 600;
+}
+
+.Image-Card-Design p {
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 0.8);
+    line-height: 1.4;
+	max-width: 100%;  /* Prevents going beyond parent */
+    overflow: hidden;  /* Hides overflow */
+    text-overflow: ellipsis;  /* Adds '...' when space is insufficient */
+    white-space: normal;  /* Allows multi-line wrapping */
+    word-wrap: break-word;  /* Ensures long words break */
+    font-size: clamp(0.9rem, 2vw, 1.2rem); /* Adjusts text size dynamically */
+}
