@@ -1,7 +1,7 @@
 .Home_Page_Background {
     position: relative; /* Ensures it stays below */
-    margin-top: 40vh; /*REMOVE THIS FOR NON-INTRODUCTORY PAGES*/
-    z-index: -2;
+    margin-top: 250px; /*REMOVE THIS FOR NON-INTRODUCTORY PAGES*/
+
     background-image: url('/images/Background.png'); /* Use absolute path */
     background-size: cover; /* Ensures the image covers the div */
     background-position: top; /* Displays the top part of the image first */
@@ -13,7 +13,10 @@
 }
 .Home_Page_Content h1{
 	font-size: 3rem;
+    z-index: 0;
 }
-.container_border_radius{
-  border-radius: 10px;
+.Flex_Row{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }

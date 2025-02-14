@@ -1,24 +1,19 @@
 import "./page.css";
 import CarousaL from "../components/Carousal.jsx";
 import ImageCards from "../components/GeneralCards.jsx";
-import Cards from "../components/Cards.jsx";
+
 import AboutUs from "./AboutUs/Aboutus";
-import Pt from "./try";
+import Pt from "../components/try";
 import Link from "next/link";
 
 export default function Home() {
 	return (
 		<div>
-			{/* Retain the Pt and AboutUs components */}
-			<Pt />
-			<AboutUs />
-
-			{/* Carousel from HEAD */}
 			<CarousaL />
 
-			{/* Home Page Content */}
 			<div className="Home_Page_Background">
 				<div className="Home_Page_Content">
+	
 					<div className="row">
 						<h1>What We Offer</h1>
 					</div>
