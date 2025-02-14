@@ -3,25 +3,27 @@ import Link from "next/link";
 import Image from "next/image";
 
 //styles
-import "bootstrap/dist/css/bootstrap.min.css";
+//import "bootstrap/dist/css/bootstrap.min.css";
+import "../styles/bootstrap.css";
 import "../styles/globals.css";
 import "./layout.css";
 
 //elements
 import NavBarHome from "../components/NavbarHome.jsx"
+import { Poppins } from 'next/font/google';
+
+//just some font adjustments
+const poppins = Poppins({
+  weight: ['400', '600'], // Include the weights you need
+  subsets: ['latin'], // Language support
+});
+
+
 export default function Layout({ children }) {
   return (
     <html>
       <body>
-        <div className="Back-Ground">
-          {/* Fullscreen Background Image */}
-          <Image 
-            src="/images/beautiful-waterfall-landscape.jpg" 
-            alt="Background"
-            layout="fill" 
-            objectFit="cover" 
-            priority
-          />
+        <div className="Back-Ground rows">
           <div className="gradient" />
 
           {/* Everything inside the background */}

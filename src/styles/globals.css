@@ -1,6 +1,37 @@
 *{
 	color:#222222;
-	font-family: "Inter", "Montserrat", "Nunito", "Raleway", sans-serif;
 	margin:0px;
 	padding: 0px;
+}
+body, html {
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
+html::-webkit-scrollbar, 
+body::-webkit-scrollbar {
+    display: none; /* Hides scrollbar in Chrome, Safari, and Edge */
+}
+
+/* FONT Enforcement */
+:root {
+    --bs-body-font-family: "Poppins", "Inter", "Montserrat", "Nunito" !important;
+    --bs-body-font-size: 16px;
+    --bs-body-font-weight: 400;
+    --bs-body-line-height: 1.6;
+    --bs-body-color: #222222;
+    --bs-body-text-align: left;
+    --bs-body-bg: #ffffff;
+}
+
+* {
+    font-family: "Poppins", "Inter", "Montserrat", "Nunito" !important;
+}
+
+body, button, input, textarea, select, p, h1, h2, h3, h4, h5, h6, span, div {
+    font-family: "Poppins", "Inter", "Montserrat", "Nunito" !important;
+}
+
+body {
+    all: unset;
+    font-family: "Poppins", "Inter", "Montserrat", "Nunito" !important;
 }
