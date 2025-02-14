@@ -1,3 +1,5 @@
+'use client';
+import { useEffect } from 'react';
 //Next modules
 import Link from "next/link";
 import Image from "next/image";
@@ -7,7 +9,7 @@ import Image from "next/image";
 import "../styles/bootstrap.css";
 import "../styles/globals.css";
 import "./layout.css";
-
+ 
 //elements
 import NavBarHome from "../components/NavbarHome.jsx"
 import { Poppins } from 'next/font/google';
@@ -20,6 +22,9 @@ const poppins = Poppins({
 
 
 export default function Layout({ children }) {
+  useEffect(() => {
+    import('bootstrap/dist/js/bootstrap.bundle.min.js');
+  }, []);
   return (
     <html>
       <body>
@@ -36,6 +41,7 @@ export default function Layout({ children }) {
             </div>
           </div>
         </div>
+        
       </body>
     </html>
   );
