@@ -27,7 +27,7 @@ export default function Layout({ children }) {
   }, []);
   return (
     <html>
-      <body>
+      <body  className="d-flex flex-column min-vh-100">
         <div className="Back-Ground rows">
           <div className="gradient" />
 

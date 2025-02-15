@@ -1,20 +1,29 @@
 import "./page.css";
 import CarousaL from "../components/Carousal.jsx";
 import ImageCards from "../components/GeneralCards.jsx";
-
+import Foots from "./Footer/page";
 import AboutUs from "./AboutUs/Aboutus";
 import Pt from "../components/try";
 import Link from "next/link";
-
+import Searchbar from "./Searchbar/page";
+import Signup from "./Signup_login/page";
 export default function Home() {
 	return (
 		<div>
 			<CarousaL />
+			
+
+   
+			
 
 			<div className="Home_Page_Background">
-				<div className="Home_Page_Content">
+			<Signup/>
+			
+				
+			
+				{/*<div className="Home_Page_Content">
 	
-					<div className="row">
+					 <div className="row">
 						<h1>What We Offer</h1>
 					</div>
 					<br />
@@ -63,12 +72,14 @@ export default function Home() {
 							</div>
 						</div>
 						<div className="col-5">
-							scas {/*Put Image box here */}
+							scas {/*Put Image box here 
 						</div>
 						<div className="col-1"></div>
 					</div>
-				</div>
-			</div>
+				</div>*/}
+				
+			</div> 
+			<Foots/>
 		</div>
 	);
 }
