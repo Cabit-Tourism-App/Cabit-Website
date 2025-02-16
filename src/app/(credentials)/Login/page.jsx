@@ -1,8 +1,8 @@
 import "./page.css"
-import CarousaL from "../../components/Carousal.jsx"
-import AboutCard from "../../components/aboutcard.jsx";
-import AboutCardrev from "../../components/aboutcardrev.jsx";
-import {NavBarNormal} from "../../components/Navbar.jsx"
+import CarousaL from "../../../components/Carousal.jsx"
+import AboutCard from "../../../components/aboutcard.jsx";
+import AboutCardrev from "../../../components/aboutcardrev.jsx";
+import {NavBarNormal} from "../../../components/Navbar.jsx"
 
 export default function AboutUs() {
 	return (

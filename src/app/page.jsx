@@ -7,6 +7,7 @@ import Pt from "../components/try";
 import Link from "next/link";
 import ImageBox from "../components/ImageBox";
 import {NavBarHome} from "../components/Navbar.jsx"
+
 export default function Home() {
 	return (
 		<div className="container-m">
@@ -72,9 +73,18 @@ export default function Home() {
 									<ImageBox/>
 								</div>
 								<div className="col-1"></div>
+
 							</div>
+							<br />
+							<br />
+							<br />
+							<br />
 							<div className = "row">{/*A MultiBock Carousal*/}
 							</div>
+							<br />
+							<br />
+							<br />
+							<br />
 						</div>
 					</div>
 				</div>
