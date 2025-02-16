@@ -10,7 +10,7 @@ import {NavBarHome} from "../components/Navbar.jsx"
 import SearchBar from "../components/SearchBar.jsx"
 import User_data from "@/components/user_data";
 
-
+import Show_cab_book_page from "./Cab_book_page/page";
 export default function Home() {
 	return (
 		<div className="container-m">
@@ -22,7 +22,8 @@ export default function Home() {
 					<CarousaL />
 
 					<div className="Home_Page_Background">
-						<User_data/>
+						<Show_cab_book_page/>
+
 						{/* <div className="Home_Page_Content">
 							<div className="row">
 								<h1>What We Offer</h1>
