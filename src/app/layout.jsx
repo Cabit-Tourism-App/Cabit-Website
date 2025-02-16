@@ -1,6 +1,4 @@
-'use client';
-import { useEffect } from 'react';
-//Next modules
+
 import Link from "next/link";
 import Image from "next/image";
 
@@ -9,9 +7,8 @@ import Image from "next/image";
 import "../styles/bootstrap.css";
 import "../styles/globals.css";
 import "./layout.css";
- 
-//elements
-import NavBarHome from "../components/NavbarHome.jsx"
+
+
 import { Poppins } from 'next/font/google';
 
 //just some font adjustments
@@ -22,24 +19,15 @@ const poppins = Poppins({
 
 
 export default function Layout({ children }) {
-  useEffect(() => {
-    import('bootstrap/dist/js/bootstrap.bundle.min.js');
-  }, []);
+
   return (
     <html>
       <body>
         <div className="Back-Ground rows">
-          <div className="gradient" />
+          <div className="gradient" /> 
 
           {/* Everything inside the background */}
-          <div className="container-m">
-            <NavBarHome/>
-
-            {/* Main Content */}
-            <div className="Content">
-              {children}
-            </div>
-          </div>
+            {children}
         </div>
         
       </body>

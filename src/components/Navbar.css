@@ -7,8 +7,6 @@
     align-items: center;
     color: white;
 }
-
-
 .NavbarHome h1
 {
 	color:white;
@@ -27,7 +25,6 @@
 
 .NavbarHome ul li {
     text-decoration: none; /* Not needed for <li>, but for <a> */
-
 }
 
 .NavbarHome ul li a {

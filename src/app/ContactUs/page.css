@@ -1,0 +1,17 @@
+.Normal_Page_Background {
+    position: relative; /* Ensures it stays below */
+    margin-top: 0px; /*REMOVE THIS FOR NON-INTRODUCTORY PAGES*/
+
+    background-image: url('/images/Background.png'); /* Use absolute path */
+    background-size: cover; /* Ensures the image covers the div */
+    background-position: top; /* Displays the top part of the image first */
+    background-repeat: no-repeat; /* Prevents repetition */
+    min-height: 950px; /* Set an initial small height */
+    overflow: hidden; /* Prevents overflow */
+    transition: height 0.3s ease-in-out; /* Smooth transition when expanding */
+    padding-top: 80px;
+}
+.Home_Page_Content h1{
+	font-size: 3rem;
+    z-index: 0;
+}
