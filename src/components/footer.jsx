@@ -4,9 +4,13 @@ export default function Foot() {
   <footer className="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
     <div className="col mb-3">
       <a href="/" className="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
-        <svg className="bi me-2" width="40" height="32"></svg>
+        <div className="bi me-2" width="40" height="32">
+        <h1 className="text-center font-weight-bold mb-2">
+                        CabIt
+                    </h1>
+        </div>
       </a>
-      <p className="text-body-secondary">© 2024</p>
+      <p className="text-body-secondary text-start">© 2024</p>
     </div>
 
     <div className="col mb-3">
