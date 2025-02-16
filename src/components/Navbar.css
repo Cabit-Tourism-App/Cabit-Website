@@ -1,0 +1,106 @@
+.NavbarHome {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)); 
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+.NavbarHome h1
+{
+	color:white;
+	font-size: 48px;
+	margin-top: 10px;
+	margin-left:5px;
+}
+.NavbarHome ul {
+    list-style: none; /* Removes bullet points */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Makes list items appear in the same line */
+    gap: 20px;
+   	margin-right: 20px;
+}
+
+.NavbarHome ul li a {
+    text-decoration: none; /* Removes underline from links */
+    font-size: 20px;
+    text-transform: bold;
+    color:white;
+}
+/* NAVBAR BUTTON  */
+
+.navbar-special-button {
+    background-color: rgba(255, 235, 102, 1); /* Glassy effect */
+    color: black;
+    padding: 16 16 ;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    min-width: fit-content; /* Expands to fit text */
+    height: 40px;
+    font-weight: bold;
+    white-space: nowrap; /* Prevents text wrapping */
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    backdrop-filter: blur(8px); /* Adds the glass effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hover Effect */
+.navbar-special-button:hover {
+    background-color: rgba(255, 235, 102, 1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+/* Active (Click) Effect */
+.navbar-special-button:active {
+    background-color: rgba(255, 235, 102, 1);
+    transform: scale(0.95);
+}
+
+
+
+/*********************************** NOW NORMAL NAVBAR STARTS ******************************************/
+.Navbar_Normal {
+    position: absolute;
+    background: rgba(0,0,0,0.8); 
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    z-index: 2;
+    padding-bottom: 0px;
+}
+.Navbar_Normal h1
+{
+    color:white;
+    font-size: 40px;
+    margin-top: 5px;
+    margin-left:20px;
+}
+.Navbar_Normal ul {
+    list-style: none; /* Removes bullet points */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Makes list items appear in the same line */
+    gap: 20px;
+    margin-right: 20px;
+}
+
+.Navbar_Normal ul li a {
+    text-decoration: none; /* Removes underline from links */
+    font-size: 20px;
+    text-transform: bold;
+    color:white;
+}
+

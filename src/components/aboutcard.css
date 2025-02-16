@@ -1,0 +1,30 @@
+.About-button {
+    padding: 16px 32px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    background-color: rgba(255, 235, 102, 0.3); /* Glassy effect */
+    backdrop-filter: blur(10px); /* Soft blur */
+    border-radius: 50px; /* Curvy shape */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    border: 1px solid rgba(255, 235, 102, 0.5); /* Light golden border */
+    transition: all 0.3s ease-out;
+    cursor: pointer;
+    outline: none;
+    display: inline-block;
+    text-align: center;
+}
+
+/* Hover effect */
+.About-button:hover {
+    transform: scale(1.1);
+    background-color: rgba(255, 235, 102, 0.8); /* Stronger highlight */
+    color: black;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Click effect */
+.About-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}

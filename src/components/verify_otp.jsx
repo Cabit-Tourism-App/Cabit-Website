@@ -16,7 +16,7 @@ export default function Verify_otp(){
           <div className="mb-3">
            <input className="form-control" placeholder="OTP" type="text"/>
            
-           <div class="d-flex justify-content-end">
+           <div className="d-flex justify-content-end">
      <a className="text-muted mt-1" href="#" style={{fontSize: "0.75rem"}}>
       resend otp
      </a>
