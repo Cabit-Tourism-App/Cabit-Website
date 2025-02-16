@@ -17,7 +17,6 @@ export  function ImageCards({ height = "350px", width = "80%" ,source= "images/d
   );
 }
 
-
 export function LoginCards({ height = "350px", width = "80%" }) {
     return (
             <div className="Login-card" style={{ height:height, width:width}}>
