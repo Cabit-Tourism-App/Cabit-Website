@@ -1,4 +1,6 @@
 import "./page.css";
+
+// Elements
 import CarousaL from "../components/Carousal.jsx";
 import ImageCards from "../components/GeneralCards.jsx";
 import Foots from "./Footer/page";
@@ -7,79 +9,91 @@ import Pt from "../components/try";
 import Link from "next/link";
 import Searchbar from "./Searchbar/page";
 import Signup from "./Signup_login/page";
+import ImageBox from "../components/ImageBox";
+import { NavBarHome } from "../components/Navbar.jsx";
+
 export default function Home() {
 	return (
 		<div>
-			<CarousaL />
-			
+			<NavBarHome />
 
-   
-			
+			<div className="container-m">
+				<CarousaL />
+				<div className="Home_Page_Background">
+					<Signup />
 
-			<div className="Home_Page_Background">
-			<Signup/>
-			
-				
-			
-				{/*<div className="Home_Page_Content">
-	
-					 <div className="row">
-						<h1>What We Offer</h1>
-					</div>
-					<br />
-					<div className="row">
-						<div className="Flex_Row">
-							<ImageCards width="50vh" height="70vh" />
-							<ImageCards width="50vh" height="70vh" />
-							<ImageCards width="50vh" height="70vh" />
-							<ImageCards width="50vh" height="70vh" />
+					<div className="Home_Page_Content">
+						<div className="row">
+							<h1>What We Offer</h1>
 						</div>
-					</div>
-					<br />
-					<br />
-					<br />
-					<br />
-
-					<div className="row">
-						<div className="col-1"></div>
-						<div className="col-5" style={{ textAlign: "left" }}>
-							<h1>In 3 Easy Steps</h1>
-							<br />
-
+						<br />
+						<div className="row">
 							<div className="Flex_Row">
-								<div className="col-1"></div>
-								<div className="col-10">
-									<h3>Choose Destination</h3>
-									<p>Select your desired travel destination and customize your itinerary.</p>
-								</div>
-							</div>
-							<br />
-
-							<div className="Flex_Row">
-								<div className="col-1"></div>
-								<div className="col-10">
-									<h3>Make Payment</h3>
-									<p>Securely complete your payment for the trip and cab services.</p>
-								</div>
-							</div>
-
-							<div className="Flex_Row">
-								<div className="col-1"></div>
-								<div className="col-10">
-									<h3>Reach Airport on selected day</h3>
-									<p>Arrive at the airport on your selected date and start your journey!</p>
-								</div>
+								<ImageCards width="50vh" height="70vh" />
+								<ImageCards width="50vh" height="70vh" />
+								<ImageCards width="50vh" height="70vh" />
+								<ImageCards width="50vh" height="70vh" />
 							</div>
 						</div>
-						<div className="col-5">
-							scas {/*Put Image box here 
+						<br />
+						<br />
+						<br />
+						<br />
+
+						<div className="row">
+							<div className="col-1"></div>
+							<div className="col-5" style={{ textAlign: "left" }}>
+								<h1>In 3 Easy Steps</h1>
+								<br />
+
+								<div className="Flex_Row">
+									<div className="col-1"></div>
+									<div className="col-10">
+										<h3>Choose Destination</h3>
+										<p>Select your desired travel destination and customize your itinerary.</p>
+									</div>
+								</div>
+								<br />
+
+								<div className="Flex_Row">
+									<div className="col-1"></div>
+									<div className="col-10">
+										<h3>Make Payment</h3>
+										<p>Securely complete your payment for the trip and cab services.</p>
+									</div>
+								</div>
+
+								<div className="Flex_Row">
+									<div className="col-1"></div>
+									<div className="col-10">
+										<h3>Reach Airport on Selected Day</h3>
+										<p>Arrive at the airport on your selected date and start your journey!</p>
+									</div>
+								</div>
+							</div>
+
+							<div className="col-5">
+								<ImageBox />
+							</div>
+							<div className="col-1"></div>
 						</div>
-						<div className="col-1"></div>
+
+						<br />
+						<br />
+						<br />
+						<br />
+
+						<div className="row">{/* A MultiBlock Carousal */}</div>
+
+						<br />
+						<br />
+						<br />
+						<br />
 					</div>
-				</div>*/}
-				
-			</div> 
-			<Foots/>
+				</div>
+			</div>
+			<Foots />
 		</div>
 	);
 }
+

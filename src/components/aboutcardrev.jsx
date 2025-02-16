@@ -9,13 +9,10 @@ export default function AboutCardrev(props) {
                         {props.heading}</h1>
                     <p className="text-start">{props.para}</p>
                     <div className="d-grid gap-2 d-md-flex justify-content-md-start">
-                        <button
-                            type="button"
-                            className="btn btn-primary btn-lg px-4 me-md-2"
-                            style={{ cursor: 'pointer' }}
-                        >
-                            Primary
-                        </button>
+                        <button className="About-button">Know More..</button>
+
+
+
                     </div></div>
                 <div className="col-10 col-sm-8 col-lg-6 ">
                     <img className="d-block mx-lg-auto img-fluid border border-gray-1000 container_border_radius  " alt="Bootstrap Themes" width="700" height="500" loading="lazy" src={props.imgsrc} />
