@@ -9,7 +9,7 @@ export default function User_data(){
         </div>
         <form>
             <div className="form-group">
-                <label for="mobile">Mobile</label>
+                <label>Mobile</label>
                 <div className="input-group">
                     <div className="input-group-prepend">
                         <span className="input-group-text">
@@ -23,19 +23,19 @@ export default function User_data(){
                 </div>
             </div>
             <div className="form-group">
-                <label for="name">Name</label>
+                <label >Name</label>
                 <input type="text" className="form-control" id="name"/>
             </div>
             <div className="form-group">
-                <label for="email">Email address</label>
+                <label >Email address</label>
                 <input type="email" className="form-control" id="email"/>
             </div>
             <div className="form-group">
-                <label for="password">Password</label>
+                <label >Password</label>
                 <input type="password" className="form-control" id="password"/>
             </div>
             <div className="form-group">
-                <label for="confirm-password">Confirm Password</label>
+                <label >Confirm Password</label>
                 <input type="password" className="form-control" id="confirm-password"/>
             </div>
             <button type="submit" className="btn btn-warning btn-block text-white">Sign up</button>

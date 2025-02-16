@@ -21,7 +21,7 @@ export function NavBarNormal(){
   return (<nav className="Navbar_Normal">
               <h1>Cabit</h1>
               <ul>
-                <li><Link href="#">Home</Link></li>
+                <li><Link href="/">Home</Link></li>
                 <li><Link href="/AboutUs">About Us</Link></li>
                 <li><Link href="#">Destinations</Link></li>
                 <li><Link href="/ContactUs">Contact</Link></li>

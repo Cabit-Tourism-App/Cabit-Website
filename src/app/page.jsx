@@ -2,11 +2,13 @@ import "./page.css";
 
 //elements
 import CarousaL from "../components/Carousal.jsx";
-import ImageCards from "../components/GeneralCards.jsx";
+import {ImageCards} from "../components/GeneralCards.jsx";
 import Pt from "../components/try";
 import Link from "next/link";
 import ImageBox from "../components/ImageBox";
 import {NavBarHome} from "../components/Navbar.jsx"
+import SearchBar from "../components/SearchBar.jsx"
+
 
 export default function Home() {
 	return (
@@ -80,13 +82,16 @@ export default function Home() {
 							<br />
 							<br />
 							<div className = "row">{/*A MultiBock Carousal*/}
+
 							</div>
 							<br />
 							<br />
 							<br />
 							<br />
+
 						</div>
 					</div>
+					
 				</div>
 			</div>
         </div>

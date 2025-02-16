@@ -1,4 +1,4 @@
-
+import "./aboutcard.css"
 export default function AboutCardrev(props) {
 
     return (

@@ -13,7 +13,6 @@ export default function AboutUs() {
 	            <div className="Content">
 					<div>
 						<div className="Normal_Page_Background">
-							
 						</div>
 					</div>
 				</div>

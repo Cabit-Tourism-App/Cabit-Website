@@ -8,6 +8,7 @@ import "../styles/bootstrap.css";
 import "../styles/globals.css";
 import "./layout.css";
 
+import Foot from  "../components/Footer.jsx"
 
 import { Poppins } from 'next/font/google';
 
@@ -28,8 +29,9 @@ export default function Layout({ children }) {
 
           {/* Everything inside the background */}
             {children}
+            <Foot/>
         </div>
-        
+      
       </body>
     </html>
   );
