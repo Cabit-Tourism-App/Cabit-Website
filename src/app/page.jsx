@@ -9,6 +9,7 @@ import ImageBox from "../components/ImageBox";
 import {NavBarHome} from "../components/Navbar.jsx"
 import SearchBar from "../components/SearchBar.jsx"
 import User_data from "@/components/user_data";
+import Destionation_pick_page from "./destination_page/page";
 
 import Show_cab_book_page from "./Cab_book_page/page";
 export default function Home() {
@@ -22,7 +23,7 @@ export default function Home() {
 					<CarousaL />
 
 					<div className="Home_Page_Background">
-						<Show_cab_book_page/>
+						<Destionation_pick_page/>
 
 						{/* <div className="Home_Page_Content">
 							<div className="row">
