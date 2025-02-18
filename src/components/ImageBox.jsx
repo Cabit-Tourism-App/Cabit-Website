@@ -1,11 +1,12 @@
-export default function ImageBox({ source = "images/download.jpeg", height = "70vh", width = "100%" }) {
+import "./ImageBox.css"
+export default function ShadowImageBox({ source = "/images/download.jpeg", height = "90vh", width = "90vh" }) {
     return (
-        <div className="ImageBox-Container" style={{ height: height, width: width }}>
-            <img src={source} alt="Image" height="100%" width="100%" />
-            
-            {/* Fixed closing div tag */}
-            <div className="ImageBox-Container-Shadow" style={{ height: height, width: width }}>
-            </div> 
+        <div className="ImageBox" style={{ height: height, width: width ,backgroundImage:`url(${source})`}}>
+
+            <div className = "InnerShadow ">
+
+            </div>
+
         </div>
     );
 }

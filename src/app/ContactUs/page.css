@@ -10,4 +10,5 @@
     overflow: hidden; /* Prevents overflow */
     transition: height 0.3s ease-in-out; /* Smooth transition when expanding */
     padding-top: 80px;
+    padding-bottom: 80px;
 }

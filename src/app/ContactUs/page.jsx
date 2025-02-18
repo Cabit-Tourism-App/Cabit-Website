@@ -1,7 +1,5 @@
 import "./page.css"
 import CarousaL from "../../components/Carousal.jsx"
-import AboutCard from "../../components/aboutcard.jsx";
-import AboutCardrev from "../../components/aboutcardrev.jsx";
 import {NavBarNormal} from "../../components/Navbar.jsx"
 
 export default function AboutUs() {
@@ -13,6 +11,7 @@ export default function AboutUs() {
 	            <div className="Content">
 					<div>
 						<div className="Normal_Page_Background">
+						sdsd
 						</div>
 					</div>
 				</div>

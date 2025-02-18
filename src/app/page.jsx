@@ -3,15 +3,12 @@ import "./page.css";
 //elements
 import CarousaL from "../components/Carousal.jsx";
 import {ImageCards} from "../components/GeneralCards.jsx";
-import Pt from "../components/try";
+
 import Link from "next/link";
 import ImageBox from "../components/ImageBox";
 import {NavBarHome} from "../components/Navbar.jsx"
 import SearchBar from "../components/SearchBar.jsx"
-import User_data from "@/components/user_data";
 import Destionation_pick_page from "./destination_page/page";
-
-import Show_cab_book_page from "./Cab_book_page/page";
 export default function Home() {
 	return (
 		<div className="container-m">
@@ -23,9 +20,9 @@ export default function Home() {
 					<CarousaL />
 
 					<div className="Home_Page_Background">
-						<Destionation_pick_page/>
+						
 
-						{/* <div className="Home_Page_Content">
+					    <div className="Home_Page_Content">
 							<div className="row">
 								<h1>What We Offer</h1>
 							</div>
@@ -50,7 +47,7 @@ export default function Home() {
 									<br />
 
 									<div className="Flex_Row">
-										<div className="col-1">Space for Image</div>
+										<div className="col-1">{/*Space for Image*/}</div>
 										<div className="col-10">
 											<h3>Choose Destination</h3>
 											<p>Select your desired travel destination and customize your itinerary.</p>
@@ -59,7 +56,7 @@ export default function Home() {
 									<br />
 
 									<div className="Flex_Row">
-										<div className="col-1"></div>
+										<div className="col-1">{/*Space for Image*/}</div>
 										<div className="col-10">
 											<h3>Make Payment</h3>
 											<p>Securely complete your payment for the trip and cab services.</p>
@@ -67,7 +64,7 @@ export default function Home() {
 									</div>
 
 									<div className="Flex_Row">
-										<div className="col-1">Space for Image</div>
+										<div className="col-1">{/*Space for Image*/}</div>
 										<div className="col-10">
 											<h3>Reach Airport on selected day</h3>
 											<p>Arrive at the airport on your selected date and start your journey!</p>
@@ -75,25 +72,25 @@ export default function Home() {
 									</div>
 								</div>
 								<div className="col-5">
-										An introductory video...
+										{/*An introductory video...*/}
 									<ImageBox/>
 								</div>
-								<div className="col-1"></div>Space for Image
+								<div className="col-1"></div>
 
 							</div>
 							<br />
 							<br />
 							<br />
 							<br />
-							<div className = "row">A MultiBock Carousal
-
+							<div className = "row">{/*A MultiBock Carousal*/}
 							</div>
 							<br />
 							<br />
 							<br />
 							<br />
 
-						</div> */}
+						</div> 
+						<Destionation_pick_page/>
 						
 
 					</div>

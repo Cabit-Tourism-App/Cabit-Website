@@ -3,7 +3,7 @@
     position: relative;
     z-index: 1; /* Ensures content appears over the background */
     text-align: center; /* Make text visible */
-} 
+}
 .custom-container {
     position: relative;
     max-width: 320px;

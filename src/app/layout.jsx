@@ -1,14 +1,13 @@
 
 import Link from "next/link";
 import Image from "next/image";
-
 //styles
 //import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/bootstrap.css";
 import "../styles/globals.css";
 import "./layout.css";
 
-import Foot from  "../components/Footer.jsx"
+// import Foot from  "../components/Footer.jsx"
 
 import { Poppins } from 'next/font/google';
 
@@ -29,9 +28,8 @@ export default function Layout({ children }) {
 
           {/* Everything inside the background */}
             {children}
-            <Foot/>
+            {/* <Foot/> */}
         </div>
-      
       </body>
     </html>
   );

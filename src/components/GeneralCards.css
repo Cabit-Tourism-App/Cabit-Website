@@ -62,12 +62,6 @@
 /*************************************************FROM HERE LOGIN CARD CSS STARTS*********************88*/
 
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
 .Login-container {
     display: flex;
     align-items: center;
@@ -139,12 +133,17 @@
 
 .btn-login {
     background-color: #ffc107;
-    color: white;
+    color: #222222;
     border: none;
 }
 
 .btn-login:hover {
     background-color: #e0a800;
+    transform: scale(1.01);
+    background-color: rgba(255, 235, 102, 0.8); /* Stronger highlight */
+    color: black;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    text-transform: bold;
 }
 
 
@@ -156,4 +155,214 @@
 
 .btn-signup:hover {
     background-color: #f8f9fa;
+    transform: scale(1.01);
+    color: black;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    text-transform: bold;
+}
+/*************************************************FROM HERE Signs CARD STARTS******************************/
+/* Centering container */
+/* Container */
+.Signup-Container {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    min-height: 100vh;
+    min-width: 50vh;
+    padding: 20px;
+}
+
+/* Signup Card */
+.Signup-Card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 350px;
+    min-width: 280px;
+}
+
+/* Header */
+.Signup-Header {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.Signup-Header h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.Signup-Header h2 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #666;
+}
+
+/* Form */
+.Signup-Form {
+    display: flex;
+    flex-direction: column;
+}
+
+.Form-Group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+}
+
+.Form-Group label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #444;
+    text-align: left;
+}
+
+.Form-Group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Signup Button */
+.Signup-Button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #ffc107;
+    color: black;
+    border: none;
+    transition: 0.2s ease-in-out;
+}
+
+.Signup-Button:hover {
+    background-color: #e0a800;
+    transform: scale(1.01);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Divider */
+.Signup-Divider {
+    text-align: center;
+    margin: 15px 0;
+    font-size: 12px;
+    color: gray;
+}
+
+/* Google Signup Button */
+.Google-Button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    background: none;
+    border: 1px solid #ccc;
+    transition: 0.2s ease-in-out;
+}
+
+.Google-Button:hover {
+    background-color: #f8f9fa;
+}
+
+/****************************************otp page****************************************************/
+.otp-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 50vh;
+}
+
+.otp-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 24rem;
+  text-align: center;
+}
+
+.otp-title {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.otp-instruction {
+  margin-bottom: 0.75rem;
+}
+
+.otp-validity {
+  color: #6c757d;
+  margin-bottom: 1rem;
+}
+
+.otp-input-container {
+  margin-bottom: 1rem;
+}
+
+.otp-input {
+  text-align: center;
+}
+
+.otp-resend {
+  text-align: right;
+  margin-top: 0.25rem;
+}
+
+.otp-resend a {
+  font-size: 0.75rem;
+  color: #6c757d;
+  text-decoration: none;
+}
+
+.otp-resend a:hover {
+  color: #333;
+}
+
+.otp-confirm {
+    background-color: #ffc107;
+    color: #222222;
+    border: none;
+    width: 100%;
+}
+
+.otp-confirm:hover {
+    background-color: #e0a800;
+    transform: scale(1.01);
+    background-color: rgba(255, 235, 102, 0.8); /* Stronger highlight */
+    color: black;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    text-transform: bold;
+}
+
+.otp-download {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.otp-download-btn {
+  display: block;
+  width: 48%;
+  padding: 0.5rem;
+  background: black;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.otp-download-btn:hover {
+  opacity: 0.8;
 }
