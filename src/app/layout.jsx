@@ -1,7 +1,6 @@
 
 import Link from "next/link";
 import Image from "next/image";
-
 //styles
 //import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/bootstrap.css";
@@ -31,7 +30,6 @@ export default function Layout({ children }) {
             {children}
             <Foot/>
         </div>
-      
       </body>
     </html>
   );

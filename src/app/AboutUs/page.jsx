@@ -1,7 +1,7 @@
 import "./page.css"
 import CarousaL from "../../components/Carousal.jsx"
-import AboutCard from "../../components/aboutcard.jsx";
-import AboutCardrev from "../../components/aboutcardrev.jsx";
+import AboutCard from "./aboutcard.jsx";
+import AboutCardrev from "./aboutcardrev.jsx";
 import {NavBarHome} from "../../components/Navbar.jsx"
 
 export default function AboutUs() {

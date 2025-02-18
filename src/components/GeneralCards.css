@@ -139,12 +139,17 @@
 
 .btn-login {
     background-color: #ffc107;
-    color: white;
+    color: #222222;
     border: none;
 }
 
 .btn-login:hover {
     background-color: #e0a800;
+    transform: scale(1.01);
+    background-color: rgba(255, 235, 102, 0.8); /* Stronger highlight */
+    color: black;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    text-transform: bold;
 }
 
 
@@ -156,4 +161,94 @@
 
 .btn-signup:hover {
     background-color: #f8f9fa;
+    transform: scale(1.01);
+    color: black;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    text-transform: bold;
 }
+/*************************************************FROM HERE Signs CARD STARTS******************************/
+/* Centering container */
+.Signup-Container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* Card styling */
+.Signup-Card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 24rem;
+}
+
+/* Header styling */
+.Signup-Header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.Signup-Header h1 {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.Signup-Header h2 {
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+/* Form elements */
+.Signup-Form .Form-Group {
+  margin-bottom: 1rem;
+}
+
+.Signup-Form input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+}
+
+/* Button styles */
+.Signup-Button {
+  background-color: #ffc107;
+  color: black;
+  font-weight: bold;
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.Signup-Button:hover {
+  background-color: #e0a800;
+}
+
+/* Divider */
+.Signup-Divider {
+  text-align: center;
+  margin: 1rem 0;
+  color: gray;
+}
+
+/* Google Signup Button */
+.Google-Button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  background: none;
+  cursor: pointer;
+}
+
+.Google-Button:hover {
+  background-color: #f8f9fa;
+}
+/****************************************otp page****************************************************/
