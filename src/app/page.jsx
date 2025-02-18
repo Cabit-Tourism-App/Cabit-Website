@@ -3,6 +3,7 @@ import "./page.css";
 //elements
 import CarousaL from "../components/Carousal.jsx";
 import {ImageCards} from "../components/GeneralCards.jsx";
+import Paymentpage from "./payment_page/page";
 
 import Link from "next/link";
 import ImageBox from "../components/ImageBox";
@@ -90,7 +91,7 @@ export default function Home() {
 							<br />
 
 						</div> 
-						<Destionation_pick_page/>
+						<Paymentpage/>
 						
 
 					</div>
