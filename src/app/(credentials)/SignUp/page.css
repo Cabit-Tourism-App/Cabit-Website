@@ -9,5 +9,6 @@
     min-height: 700px; /* Set an initial small height */
     overflow: hidden; /* Prevents overflow */
     transition: height 0.3s ease-in-out; /* Smooth transition when expanding */
-    padding-top: 200px;
+    padding-top: 80px;
+    padding-bottom: 80px;
 }

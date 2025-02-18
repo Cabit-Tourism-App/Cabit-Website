@@ -3,14 +3,11 @@ import "./page.css";
 //elements
 import CarousaL from "../components/Carousal.jsx";
 import {ImageCards} from "../components/GeneralCards.jsx";
-import Pt from "../components/try";
+
 import Link from "next/link";
 import ImageBox from "../components/ImageBox";
 import {NavBarHome} from "../components/Navbar.jsx"
 import SearchBar from "../components/SearchBar.jsx"
-import User_data from "../components/user_data";
-
-import Show_cab_book_page from "./Cab_book_page/page";
 export default function Home() {
 	return (
 		<div className="container-m">

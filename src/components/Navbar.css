@@ -78,7 +78,7 @@
     justify-content: space-between;
     align-items: center;
     color: white;
-    z-index: 2;
+    z-index: 1;
     padding-bottom: 0px;
 }
 .Navbar_Normal h1
