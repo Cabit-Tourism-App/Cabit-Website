@@ -47,12 +47,3 @@
     padding: 0 5px;
     border-radius: 3px;
 }
-.extra-bold {
-    font-weight: 900;
-  }
-  .form-container_destination_choosing_page {
-    background-color: white !important;
-    opacity: 1 !important;
-    z-index: 1;
-  }
-  
