@@ -3,11 +3,13 @@ import "./page.css";
 //elements
 import CarousaL from "../components/Carousal.jsx";
 import {ImageCards} from "../components/GeneralCards.jsx";
+import Paymentpage from "./payment_page/page";
 
 import Link from "next/link";
 import ImageBox from "../components/ImageBox";
 import {NavBarHome} from "../components/Navbar.jsx"
 import SearchBar from "../components/SearchBar.jsx"
+import Destionation_pick_page from "./destination_page/page";
 export default function Home() {
 	return (
 		<div className="container-m">
@@ -89,6 +91,7 @@ export default function Home() {
 							<br />
 
 						</div> 
+						<Paymentpage/>
 						
 
 					</div>
