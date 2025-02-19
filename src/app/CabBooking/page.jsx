@@ -14,13 +14,11 @@ export default function CabBook() {
 								<div className = "WhiteCard">
 									<div className = "row">
 										<div className = "col-6"><BookForm/></div>
-									
 										<div className = "col-6" style = {{ borderLeft:"1px solid #444"}}><ImageBox width = "85vh"/></div>
 									</div>
 								</div>
 							</div>
 						<div className = "col-1"></div>
-						
 					</div>
 				</div>
 		</div>

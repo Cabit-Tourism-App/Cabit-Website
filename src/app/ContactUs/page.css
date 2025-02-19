@@ -12,3 +12,12 @@
     padding-top: 80px;
     padding-bottom: 80px;
 }
+.WhiteCard
+{
+    padding: 40 20;
+    background-color: rgba(255,255,255,.75);
+    border:1px solid black;
+    border-radius: 10px;
+    
+
+}
