@@ -12,3 +12,8 @@
     padding-top: 80px;
     padding-bottom: 80px;
 }
+.Flex_Row{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}

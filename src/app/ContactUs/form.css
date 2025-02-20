@@ -1,0 +1,135 @@
+.ContactForm_Container{
+
+}
+
+
+
+/* Row Styling - To Keep Inputs in a Single Line */
+
+
+.Input_Row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Adjust spacing between inputs */
+    width: 100%;
+}
+
+/* Input Container */
+.Input_Option {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Ensures responsiveness */
+    text-align: left;
+}
+
+/* Label Styling - Darker & Elegant */
+.Input_Option p {
+    font-size: 16px;
+    color: #555555; /* Darker shade for better visibility */
+    margin-bottom: 5px;
+}
+
+/* Transparent Input with Blank Line */
+.TrasparentInput {
+    width: 85%;
+    padding: 0;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.9);
+    background: transparent;
+    font-size: 16px;
+    color: #555555; /* Text remains visible */
+    outline: none;
+    transition: border-bottom 0.3s ease-in-out;
+    border-bottom: 1px solid #333333;
+
+    spellcheck: false; 
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+/* Input Focus Effect */
+.TrasparentInput:focus {
+     /* Gold highlight on focus */
+    box-shadow: none;
+}
+/*************************************************************************************************/
+.radio-group {
+  display: flex;
+  flex-direction: row;
+  gap:30px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.radio-option input {
+  display: none; /* Hide default radio button */
+}
+
+.custom-radio {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #ffc107;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  margin-right: 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+.radio-option input:checked + .custom-radio {
+  background-color: #ffc107;
+  border-color: #e0a800;
+}
+
+.radio-option input:checked + .custom-radio::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.ppmmmoonn
+{
+	position: absolute;
+	bottom:80px;
+	right: 70px;
+	padding: 16px 32px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    background-color: rgba(255, 235, 102, 0.3); /* Glassy effect */
+    backdrop-filter: blur(10px); /* Soft blur */
+    border-radius: 50px; /* Curvy shape */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    border: 1px solid rgba(255, 235, 102, 0.5); /* Light golden border */
+    transition: all 0.3s ease-out;
+    cursor: pointer;
+    outline: none;
+    display: inline-block;
+    text-align: center;
+}
+/* Hover effect */
+.ppmmmoonn:hover {
+    transform: scale(1.1);
+    background-color: rgba(255, 235, 102, 0.8); /* Stronger highlight */
+    color: black;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Click effect */
+.ppmmmoonn:active {
+    transform: scale(0.95);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}

@@ -6,7 +6,7 @@
     background-size: cover; /* Ensures the image covers the div */
     background-position: top; /* Displays the top part of the image first */
     background-repeat: no-repeat; /* Prevents repetition */
-    min-height: 700px; /* Set an initial small height */
+    min-height: 550px; /* Set an initial small height */
     overflow: hidden; /* Prevents overflow */
     transition: height 0.3s ease-in-out; /* Smooth transition when expanding */
     padding-top: 80px;
@@ -23,4 +23,29 @@
 }
 
 
+.header-section {
+  margin-bottom: 1rem;
+}
 
+.form-container {
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  background-color: white;
+}
+
+.date-picker {
+  display: flex;
+  gap: 1rem;
+}
+
+.date-picker div {
+  width: 50%;
+}
+
+.feature-icon {
+  height: 64px;
+  width: 64px;
+  margin-bottom: 0.5rem;
+}

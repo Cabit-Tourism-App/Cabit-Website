@@ -37,4 +37,14 @@ body {
     all: unset;
     font-family: "Poppins", "Inter", "Montserrat", "Nunito" !important;
 }
+/*
+[class*="col-"] {
+    padding: 5px !important;
+}
+*/
+.Flex_Row{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
 

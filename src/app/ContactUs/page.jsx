@@ -1,6 +1,8 @@
 import "./page.css"
 import CarousaL from "../../components/Carousal.jsx"
 import {NavBarNormal} from "../../components/Navbar.jsx"
+import Form from "./form.jsx"
+import Share from "./share.jsx"
 
 export default function ContactUs() {
 	return (
@@ -14,11 +16,14 @@ export default function ContactUs() {
 						<div className = "row">
 						<div className = "col-1"></div>
 							<div className = "col-10">
-								<div className = "WhiteCard">
+								<div className = "WhiteCard" style = {{ padding:"5px" ,minWidth:"900px"}}>
 									<div className = "row">
-										<div className = "col-6">efew</div>
-
-										<div className = "col-6" style = {{ borderLeft:"1px solid #444"}}></div>
+										<div className = "col-5">
+											<Share/>
+										</div>
+										<div className = "col-7" style = {{paddingLeft:"5px",color:"#333333",paddingTop:"50px",position: "relative"}}>
+											<Form/>
+										</div>
 									</div>
 								</div>
 							</div>
