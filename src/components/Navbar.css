@@ -28,7 +28,25 @@
     font-size: 20px;
     text-transform: bold;
     color:white;
+
 }
+.NavbarHome ul li a:hover {
+  color: white;
+  text-shadow: 0 0 2px white;
+   animation: slowGlow 5s ;
+}
+@keyframes slowGlow {
+  0% {
+    text-shadow: 0 0 2px white;
+  }
+  50% {
+    text-shadow: 0 0 3px white, 0 0 3px white;
+  }
+  100% {
+    text-shadow: 0 0 2px white;
+  }
+}
+
 /* NAVBAR BUTTON  */
 
 .navbar-special-button {
@@ -58,6 +76,7 @@
     background-color: rgba(255, 235, 102, 1);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
     transform: scale(1.05);
+     text-shadow: none;
 }
 
 /* Active (Click) Effect */
@@ -71,7 +90,7 @@
 /*********************************** NOW NORMAL NAVBAR STARTS ******************************************/
 .Navbar_Normal {
     position: absolute;
-    background: rgba(0,0,0,0.8); 
+    background: rgba(0,0,0,0.8);
     width: 100%;
     padding: 5px;
     display: flex;
@@ -102,5 +121,21 @@
     font-size: 20px;
     text-transform: bold;
     color:white;
+}
+.Navbar_Normal ul li a:hover {
+  color: white;
+  text-shadow: 0 0 2px white;
+   animation: slowGlow 5s ;
+}
+@keyframes slowGlow {
+  0% {
+    text-shadow: 0 0 2px white;
+  }
+  50% {
+    text-shadow: 0 0 3px white, 0 0 3px white;
+  }
+  100% {
+    text-shadow: 0 0 2px white;
+  }
 }
 

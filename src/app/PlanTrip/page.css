@@ -1,0 +1,134 @@
+.Home_Page_Background {
+    position: relative; /* Ensures it stays below */
+    margin-top: 250px; /*REMOVE THIS FOR NON-INTRODUCTORY PAGES*/
+
+    background-image: url('/images/Background.png'); /* Use absolute path */
+    background-size: cover; /* Ensures the image covers the div */
+    background-position: top; /* Displays the top part of the image first */
+    background-repeat: no-repeat; /* Prevents repetition */
+    min-height: 700px; /* Set an initial small height */
+    overflow: hidden; /* Prevents overflow */
+    transition: height 0.3s ease-in-out; /* Smooth transition when expanding */
+    padding-top: 80px;
+}
+.Home_Page_Content h1{
+	font-size: 3rem;
+    z-index: 0;
+}
+.Flex_Row{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+/************************************first*/
+.WhereTo h1 {
+    font-size: 60px;
+}
+
+.LargeFormInputs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.LargeFormInputsBox {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.LargeFormInputsBox label {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 4px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.LargeFormInputsBox input {
+    padding: 12px;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    outline: none;
+    width: 100%;
+    background: #ffffff;
+    transition: 0.3s ease-in-out;
+}
+.StartPlanning{
+    background-color: rgba(255, 235, 102, 1); /* Glassy effect */
+    color: black;
+    padding: 16 16 ;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    min-width: fit-content; /* Expands to fit text */
+    height: 60px;
+    font-weight: bold;
+    white-space: nowrap; /* Prevents text wrapping */
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    backdrop-filter: blur(8px); /* Adds the glass effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: 20px;
+}
+.StartPlanning:hover{
+    background-color: rgba(255, 235, 102, 1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+     text-shadow: none;
+
+}
+/* Active (Click) Effect */
+.StartPlanning:active {
+    background-color: rgba(255, 235, 102, 1);
+    transform: scale(0.95);
+}
+
+/************************************Second*/
+.TripPlanOptions {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.ButtonGroup {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.optionButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    gap: 10px;
+    width: 370px;
+    height: 60px;
+    
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    text-align: center;
+    
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    backdrop-filter: blur(2px);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.optionButton:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+}

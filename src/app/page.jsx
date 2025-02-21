@@ -19,7 +19,6 @@ export default function Home() {
 					<CarousaL />
 
 					<div className="Home_Page_Background">
-						
 
 					    <div className="Home_Page_Content">
 							<div className="row">
@@ -46,7 +45,7 @@ export default function Home() {
 									<br />
 
 									<div className="Flex_Row">
-										<div className="col-1">{/*Space for Image*/}</div>
+										<div className="col-1"><img src = "images/download.jpeg" style = {{width:"100%"}}/></div>
 										<div className="col-10">
 											<h3>Choose Destination</h3>
 											<p>Select your desired travel destination and customize your itinerary.</p>
@@ -55,7 +54,7 @@ export default function Home() {
 									<br />
 
 									<div className="Flex_Row">
-										<div className="col-1">{/*Space for Image*/}</div>
+										<div className="col-1"><img src = "images/download.jpeg" style = {{width:"100%"}}/></div>
 										<div className="col-10">
 											<h3>Make Payment</h3>
 											<p>Securely complete your payment for the trip and cab services.</p>
@@ -63,7 +62,7 @@ export default function Home() {
 									</div>
 
 									<div className="Flex_Row">
-										<div className="col-1">{/*Space for Image*/}</div>
+										<div className="col-1"><img src = "images/download.jpeg" style = {{width:"100%"}}/></div>
 										<div className="col-10">
 											<h3>Reach Airport on selected day</h3>
 											<p>Arrive at the airport on your selected date and start your journey!</p>
@@ -82,6 +81,7 @@ export default function Home() {
 							<br />
 							<br />
 							<div className = "row">{/*A MultiBock Carousal*/}
+							caousal
 							</div>
 							<br />
 							<br />
