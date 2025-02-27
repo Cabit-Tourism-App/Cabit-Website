@@ -27,10 +27,10 @@ export default function Home() {
 							<br />
 							<div className="row">
 								<div className="Flex_Row">
-									<ImageCards width="50vh" height="70vh" />
-									<ImageCards width="50vh" height="70vh" />
-									<ImageCards width="50vh" height="70vh" />
-									<ImageCards width="50vh" height="70vh" />
+									<ImageCards width="50vh" height="70vh" heading = "Tour Planner" />
+									<ImageCards width="50vh" height="70vh" heading = "Cab Booking"  />
+									<ImageCards width="50vh" height="70vh" heading = "Best Destinations "  />
+									<ImageCards width="50vh" height="70vh" heading = "No Lang-Barriers"  />
 								</div>
 							</div>
 							<br />
@@ -80,22 +80,127 @@ export default function Home() {
 							<br />
 							<br />
 							<br />
-							<div className = "row">{/*A MultiBock Carousal*/}
-							caousal
+							{/*1> How we help your travel
+							   2> Ready Made Trip plans
+							   3> Safe ans secure travel (women Safety)*/}
+
+							<div className = "row">
+								<div className="col-1"></div>
+								<div className="col-5">
+										{/*An introductory video...*/}
+									<ImageBox/>
+								</div>
+								<div className = "col-5" style={{ textAlign: "left" }}>
+									<div className="row">
+										<div className = "Flex_Row">
+											<h1> How we Make your travel better</h1>
+											<br/>
+										</div>
+									</div>
+									<div className="Flex_Row">
+										<div className="col-1"><img src = "images/download.jpeg" style = {{width:"100%"}}/></div>
+										<div className="col-10">
+											<h3>Plan ahead Plan better</h3>
+											<p>Effortlessly plan your trip with customized itineraries, seamless ride integration, and real-time updates for a stress-free journey.</p>
+										</div>
+									</div>
+							
+
+									<div className="Flex_Row">
+										<div className="col-1"><img src = "images/download.jpeg" style = {{width:"100%"}}/></div>
+										<div className="col-10">
+											<h3>Multilingual Support</h3>
+											<p>Plan your trip effortlessly with our multilingual drivers and built-in translator, ensuring clear communication and a seamless journey.</p>
+										</div>
+									</div>
+
+									<div className="Flex_Row">
+										<div className="col-1"><img src = "images/download.jpeg" style = {{width:"100%"}}/></div>
+										<div className="col-10">
+											<h3>Affordable Prices/Cashless Payments</h3>
+											<p>Enjoy affordable pricing with no hidden charges and seamless cashless payments for a hassle-free travel experience</p>
+										</div>
+									</div>
+									</div>
+								</div>
+								<div className="col-1"></div>
 							</div>
 							<br />
 							<br />
 							<br />
 							<br />
+							<div className="row">
+								<div className="col-1"></div>
+								<div className="col-5" style={{ textAlign: "left" }}>
+									<h1>Safety & Easy Travel</h1>
+									<br />
+
+									<div className="Flex_Row">
+										<div className="col-1"><img src = "images/download.jpeg" style = {{width:"100%"}}/></div>
+										<div className="col-10">
+											<h3>Verified & Trained Drivers</h3>
+											<p>SAll drivers undergo background checks and professional training to ensure a safe and reliable travel experience for everyone.</p>
+										</div>
+									</div>
+									<br />
+
+									<div className="Flex_Row">
+										<div className="col-1"><img src = "images/download.jpeg" style = {{width:"100%"}}/></div>
+										<div className="col-10">
+											<h3>Live Tracking & 24/7 Assistance</h3>
+											<p>Real-time GPS tracking and a dedicated support team provide constant monitoring and immediate help whenever needed</p>
+										</div>
+									</div>
+
+									<div className="Flex_Row">
+										<div className="col-1"><img src = "images/download.jpeg" style = {{width:"100%"}}/></div>
+										<div className="col-10">
+											<h3>Secure & Comfortable Rides for All</h3>
+											<p>Features like ride detail sharing, emergency alerts, and a safe travel environment ensure a worry-free journey for every passenger.</p>
+										</div>
+									</div>
+								</div>
+								<div className="col-5">
+										{/*An introductory video...*/}
+									<ImageBox/>
+								</div>
+								<div className="col-1"></div>
+
+							</div>
+							<br />
+							<br />
+							<br />
+							<br />
+							<div className="row">
+							  <div className="col-12 text-center my-4">
+							    <h2 className="fw-bold">Download Now</h2>
+							    <div className="border-bottom mx-auto" style={{ width: "100px" }}></div>
+							  </div>
+							  <div className="col-4"></div>
+							  <div className="col-4">
+								  <div className="d-flex justify-content-center" style={{ gap: "20px" }}>
+
+								    <div className="text-center">
+								      <ImageBox width="40vh" height="40vh"/>
+								      <p className="mt-2 fw-semibold">Cabit User: Bike-Taxi, Auto & Cabs</p>
+								    </div>
+								    <div className="text-center">
+								      <ImageBox width="40vh" height="40vh"/>
+								      <p className="mt-2 fw-semibold">Cabit Driver: Drive & Earn</p>
+								    </div>
+
+								  </div>
+							  </div>
+							  <div className="col-4"></div>
+							</div>
+
+
+
 
 						</div> 
-						
-
 					</div>
-					
-					
 				</div>
 			</div>
-        </div>
+
 	);
 }
