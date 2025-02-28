@@ -11,7 +11,7 @@ export function NavBarHome(){
                 <li><Link href="#">Destinations</Link></li>
                 <li><Link href="ContactUs">Contact</Link></li>
                 <li><Link href="Login"><p className = "navbar-special-button">Log in</p></Link></li>
-                <li><Link href="SignUp"><p className = "navbar-special-button">Plan Trip</p></Link></li>
+                <li><Link href="/PlanTrip"><p className = "navbar-special-button">Plan Trip</p></Link></li>
               </ul>
             </nav>);
 }
@@ -26,7 +26,7 @@ export function NavBarNormal(){
                 <li><Link href="#">Destinations</Link></li>
                 <li><Link href="/ContactUs">Contact</Link></li>
                 <li><Link href="/Login"><p className = "navbar-special-button">Log in</p></Link></li>
-                <li><Link href="/SignUp"><p className = "navbar-special-button">Plan Trip</p></Link></li>
+                <li><Link href="/PlanTrip"><p className = "navbar-special-button">Plan Trip</p></Link></li>
               </ul>
             </nav>);
 }
