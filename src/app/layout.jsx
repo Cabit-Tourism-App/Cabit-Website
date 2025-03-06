@@ -1,6 +1,9 @@
 
+"use client"; // yah i know will be changing this line soon 
 import Link from "next/link";
 import Image from "next/image";
+
+import { usePathname } from "next/navigation";
 //styles
 //import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/bootstrap.css";
@@ -19,6 +22,25 @@ const poppins = Poppins({
 
 
 export default function Layout({ children }) {
+  const pathname =  usePathname()|| "not found";
+  const lastPart = pathname.split('/').filter(Boolean).pop() || "home";
+  console.log(lastPart)
+   
+  if (lastPart.startsWith('admin')) {
+    return (
+
+<html>
+      <body>
+
+            {children}
+           
+      </body>
+</html>
+
+
+
+
+    );} // Ignore parent layout for `/admin`
 
   return (
     <html>
@@ -26,7 +48,6 @@ export default function Layout({ children }) {
         <div className="Back-Ground rows">
           <div className="gradient" /> 
 
-          {/* Everything inside the background */}
             {children}
             <Foot/>
         </div>
