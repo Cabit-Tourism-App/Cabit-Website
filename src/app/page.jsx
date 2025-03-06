@@ -3,7 +3,7 @@ import "./page.css";
 //elements
 import CarousaL from "../components/Carousal.jsx";
 import {ImageCards} from "../components/GeneralCards.jsx";
-
+import TouristAttractions from "./VisitingPlaces/page";
 import Link from "next/link";
 import ImageBox from "../components/ImageBox";
 import {NavBarHome} from "../components/Navbar.jsx"
@@ -196,7 +196,7 @@ export default function Home() {
 
 
 
-
+                          <TouristAttractions/>
 						</div> 
 					</div>
 				</div>
