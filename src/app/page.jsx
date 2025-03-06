@@ -132,7 +132,7 @@ export default function Home() {
 							<div className="row">
 								<div className="col-1"></div>
 								<div className="col-5" style={{ textAlign: "left" }}>
-									<h1>Safety & Easy Travel</h1>
+									<h1 style={{ fontSize: "2.5rem" }}>Safety & Easy Travel</h1>
 									<br />
 
 									<div className="Flex_Row">
@@ -169,8 +169,18 @@ export default function Home() {
 							</div>
 							<br />
 							<br />
+						
+					
+							<div className ="row">
+								<h1>Top Destinations</h1>
+								<img src ="/images/temp.png"/>
+							</div>
+				
 							<br />
 							<br />
+							<br />
+							<br />
+
 							<div className="row">
 							  <div className="col-12 text-center my-4">
 							    <h2 className="fw-bold">Download Now</h2>
@@ -193,10 +203,10 @@ export default function Home() {
 							  </div>
 							  <div className="col-4"></div>
 							</div>
+							
 
 
-
-                          <TouristAttractions/>
+                          {/*<TouristAttractions/>*/}
 						</div> 
 					</div>
 				</div>
