@@ -1,3 +1,4 @@
+// yah have to import each type separately
 const { 
     pgTable, varchar, text, pgEnum, integer, bigserial, 
     timestamp, decimal, jsonb, smallint, date, uuid, 
@@ -15,6 +16,12 @@ const rideStatusEnum = pgEnum("ride_status", ["ongoing", "successful", "failed"]
 const distressStatusEnum = pgEnum("distress_status", ["active", "inactive"]);
 
 
+
+
+
+
+
+
 const Users = pgTable("users", {
     user_id: varchar("user_id", { length: 255 }).primaryKey(),
     user_name: varchar("user_name", { length: 100 }).notNull(),
@@ -27,6 +34,11 @@ const Users = pgTable("users", {
     forget_pass_ans: varchar("forget_pass_ans", { length: 255 }).default(null),
     more_info: jsonb("more_info").default(sql`'{}'::jsonb`),
 });
+
+
+
+
+
 
 
 const Drivers = pgTable("drivers", {
@@ -45,6 +57,11 @@ const Drivers = pgTable("drivers", {
 });
 
 
+
+
+
+
+
 const Sessions = pgTable("sessions", {
     session_id: uuid("session_id").defaultRandom().primaryKey(),
     user_id: varchar("user_id", { length: 255 }).notNull().references(() => Users.user_id),
@@ -53,6 +70,10 @@ const Sessions = pgTable("sessions", {
     session_data: jsonb("session_data").default(sql`'{}'::jsonb`),
     session_status: boolean("session_status").default(true), 
 });
+
+
+
+
 
 
 const Itinerary = pgTable("itinerary", {
@@ -66,6 +87,8 @@ const Itinerary = pgTable("itinerary", {
     payment_status: paymentStatusEnum("payment_status"),
     cookie: jsonb("cookie").default(null),
 });
+
+
 
 
 const Rides = pgTable("rides", {
@@ -85,7 +108,6 @@ const Rides = pgTable("rides", {
     remark: jsonb("remark").default(sql`'{}'::jsonb`),
 });
 
-// Distress Table
 const Distress = pgTable("distress", {
     ride_id: serial("ride_id").primaryKey().references(() => Rides.ride_id),
     user_id: varchar("user_id", { length: 255 }).notNull().references(() => Users.user_id),
