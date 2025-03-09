@@ -21,17 +21,17 @@ class CarousaL extends Component {
                     <div >
                         <img className="carousel-image" src="/images/beautiful-waterfall-landscape.jpg" alt="Slide 1"/>
                         <div className = "Header-Text">
-                            <div className = "Slogan">
-                                <h1>
-                                    Just Select Travel & Enjoy
+                            <div className = "Slogan ">
+                            <h1 className="text-6xl font-bold text-white">
+
+                                    Just Select <span className="text-[#FFEA66]">Travel</span> & Enjoy
                                 </h1>
-                                <p>
+                                <p className="mt-2">
                                     Discover hassle-free travel with Cabit, just select 
-                                    your destination, 
-                                    and we'll create an AI-generated itinerary, book your entire 
-                                    package, 
-                                    and ensure taxi
-                                    are ready for seamless pickups and drop-offs.
+                                    your destination,
+                                    <br/> 
+                                    
+                                    are you ready for seamless pickups and drop-off?
                                 </p>
                             </div>
 
@@ -43,8 +43,9 @@ class CarousaL extends Component {
                     <div>
                         <img className="carousel-image" src="/images/Happy_Image.jpeg" alt="Slide 2"/>
                         <div className = "Header-Text">
+                            
                             <div className = "Slogan row">
-                                <h1 >
+                            <h1 className="text-4xl font-bold text-white">
                                     Just Select Travel & Enjoy
                                 </h1>
                                 <p>
@@ -65,7 +66,7 @@ class CarousaL extends Component {
                         <img className="carousel-image" src="/images/minimalist-photorealistic-road.jpg" alt="Slide 3"/>
                         <div className = "Header-Text">
                             <div className = "Slogan row">
-                                <h1 >
+                            <h1 className="text-5xl font-bold text-white">
                                     Just Select Travel & Enjoy
                                 </h1>
                                 <p>
