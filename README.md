@@ -42,7 +42,6 @@ CabIt is a ride-hailing service with an integrated trip planner. This backend is
 
 ```sh
 git clone https://github.com/your-repo/cabit-backend.git
-cd cabit-backend
 ```
 
 ### 2️⃣ Install Dependencies
