@@ -7,17 +7,7 @@ export default function TestPage() {
     const [id, setId] = useState("");
     const [method, setMethod] = useState("GET");
     const [jsonData, setJsonData] = useState(
-        JSON.stringify({
-            user_id: "usr_12345",
-            user_name: "Ayush Kumar Gaur",
-            user_gender: "male",
-            user_password: "securepassword",
-            user_phone: "+911234567890",
-            role: "admin",
-            client_avg_rating: 4.5,
-            forget_pass_ans: "MyFirstCar",
-            more_info: { interests: ["AI", "ML"], bio: "Loves AI and ML" }
-        }, null, 2) // Some sample data for testing
+        JSON.stringify({}, null, 2) // Some sample data for testing
     );
     const [response, setResponse] = useState(null);
 

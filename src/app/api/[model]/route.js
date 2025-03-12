@@ -113,7 +113,7 @@ export async function PUT(req, res) {
             return new Response(JSON.stringify({ error: "Invalid JSON" }), { status: 400 });
         }
         const tableInfo = tables[model];
-        // Update the record
+      
         const [updatedRecord] = await db.update(tableInfo.table).set(body).where(eq(tableInfo.table[tableInfo.idField],id)).returning();
 
         if (updatedRecord) {
@@ -143,7 +143,7 @@ export async function DELETE(req, res) {
             return new Response(JSON.stringify({ error: "Invalid model" }), { status: 400 });
         }
         const tableInfo = tables[model];
-        // Delete the record
+     
         if (id) {
             const record = await db.delete(tableInfo.table).where(eq(tableInfo.table[tableInfo.idField],id)).returning();  
             console.log(id,tableInfo.table[tableInfo.idField])
