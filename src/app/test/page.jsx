@@ -1,4 +1,4 @@
-"use client"; // ✅ Ensure this is at the very top
+"use client";
 
 import { useState } from "react";
 
@@ -10,14 +10,14 @@ export default function TestPage() {
         JSON.stringify({
             user_id: "usr_12345",
             user_name: "Ayush Kumar Gaur",
-            user_gender: "Male",
+            user_gender: "male",
             user_password: "securepassword",
             user_phone: "+911234567890",
             role: "admin",
             client_avg_rating: 4.5,
             forget_pass_ans: "MyFirstCar",
             more_info: { interests: ["AI", "ML"], bio: "Loves AI and ML" }
-        }, null, 2) // Pre-fill JSON for testing
+        }, null, 2) // Some sample data for testing
     );
     const [response, setResponse] = useState(null);
 
