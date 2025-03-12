@@ -50,8 +50,8 @@ export default function MapBox({ startLocation, endLocation }) {
                 });
 
                 return () => {
-                    newMap.remove(); // Cleanup map
-                    newSocket.disconnect(); // Cleanup socket
+                    newMap.remove(); 
+                    newSocket.disconnect(); 
                 };
             });
         }
@@ -136,7 +136,7 @@ export default function MapBox({ startLocation, endLocation }) {
                 show: true,
             }).addTo(map);
 
-            // Hide the itinerary panel manually
+            //ReMOVE NONE SENSE
             const container = control.getContainer();
             console.log(container)
             container.style.display = "none";
@@ -150,7 +150,7 @@ export default function MapBox({ startLocation, endLocation }) {
 
     useEffect(() => {
         if (startLocation && endLocation) {
-            drawRoute(); // Automatically draw the route when start and end locations are available
+            drawRoute(); 
         }
     }, [startLocation, endLocation]);
 
