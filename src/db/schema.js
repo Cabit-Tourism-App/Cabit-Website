@@ -68,7 +68,7 @@ const Sessions = pgTable("sessions", {
     start_time: timestamp("start_time").defaultNow(),
     last_active: timestamp("last_active").defaultNow(),
     session_data: jsonb("session_data").default(sql`'{}'::jsonb`),
-    session_status: boolean("session_status").default(true), 
+    session_status: boolean("session_status").default(true),
 });
 
 
@@ -104,7 +104,7 @@ const Rides = pgTable("rides", {
     ride_status: rideStatusEnum("ride_status"),
     created_at: timestamp("created_at").defaultNow(),
     completed_at: timestamp("completed_at").default(null),
-    path_taken: jsonb("path_taken").default(sql`'{}'::jsonb`), 
+    path_taken: jsonb("path_taken").default(sql`'{}'::jsonb`),
     remark: jsonb("remark").default(sql`'{}'::jsonb`),
 });
 
@@ -120,7 +120,7 @@ const Distress = pgTable("distress", {
     call_location: jsonb("call_location").notNull(),
     path_taken: jsonb("path_taken").default(sql`'{}'::jsonb`),
     current_location: jsonb("current_location").notNull(),
-    distress_status: boolean("distress_status").default(false), 
+    distress_status: boolean("distress_status").default(false),
     resolution_time: timestamp("resolution_time").default(null),
     resolved_by: integer("resolved_by").default(null),
     driver_response_at: timestamp("driver_response_at").default(null),
