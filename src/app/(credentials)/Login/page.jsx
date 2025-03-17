@@ -15,7 +15,7 @@ export default function Login() {
 	            <div className="Content">
 					<div>
 						<div className="Normal_Page_Background">
-							<div className="row">
+							<div className="row" style = {{"marginTop":"100px",}}>
 									<div className="Flex_Row">
 										<div style={{padding:"30px"}}>
 											<img src="images/CabitImage.png"/>

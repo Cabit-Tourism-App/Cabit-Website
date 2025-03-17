@@ -121,12 +121,25 @@
 
 .btn-login, .btn-signup {
     width: 100%;
-    padding: 12px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
+    color: black;
+    padding: 16 16 ;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    min-width: fit-content; /* Expands to fit text */
+    height: 40px;
+    font-weight: bold;
+    white-space: nowrap; /* Prevents text wrapping */
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    backdrop-filter: blur(8px); /* Adds the glass effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 10px;
-    transition: background-color 0.2s ease-in-out;
 }
 
 
@@ -237,14 +250,14 @@
     font-weight: bold;
     cursor: pointer;
     border-radius: 5px;
-    background-color: #ffc107;
+    background-color: rgba(255, 235, 102, 1);
     color: black;
     border: none;
     transition: 0.2s ease-in-out;
 }
 
 .Signup-Button:hover {
-    background-color: #e0a800;
+    background-color: rgba(255, 235, 102, 1);
     transform: scale(1.01);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
@@ -272,6 +285,8 @@
 
 .Google-Button:hover {
     background-color: #f8f9fa;
+    transform: scale(1.01);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 /****************************************otp page****************************************************/

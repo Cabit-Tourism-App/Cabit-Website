@@ -16,15 +16,15 @@ export default function Login() {
 	            <div className="Content">
 					<div>
 						<div className="Normal_Page_Background">
-							<div className="row">
+							<div className="row" style = {{"marginTop":"30px",}}>
 								<div className="col-1"/>
-								<div className="col-5" style={{padding:"30px"}}>
-									<img src="images/CabitImage.png"/>
-								</div>
+									<div className="col-5" style={{padding:"30px"}}>
+										<img src="images/CabitImage.png"/>
+									</div>
 								<div className="col-1"/>
-								<div className = "col-4">
-									<SignUpCard/>
-								</div>
+									<div className = "col-4">
+										<SignUpCard/>
+									</div>
 							</div>
 						</div>
 					</div>
