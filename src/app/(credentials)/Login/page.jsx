@@ -9,7 +9,6 @@ import {LoginCard} from "../../../components/GeneralCards.jsx";
 export default function Login() {
 	return (
 		<div>
-			<NavBarNormal/>
 			<div className="container-m">
 	            {/* Main Content */}
 	             <NavBarNormal/>
@@ -17,18 +16,14 @@ export default function Login() {
 					<div>
 						<div className="Normal_Page_Background">
 							<div className="row">
-								
 									<div className="Flex_Row">
-									
 										<div style={{padding:"30px"}}>
 											<img src="images/CabitImage.png"/>
 										</div>
-										
 										<div >
 											<LoginCard/>
 										</div>
 									</div>
-							
 							</div>
 						</div>
 					</div>

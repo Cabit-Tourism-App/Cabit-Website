@@ -1,7 +1,7 @@
 import { drizzle } from "drizzle-orm/node-postgres";
 import { eq, lt, gte, ne } from 'drizzle-orm';
 import { Pool } from "pg";
-import { Users, Drivers, Sessions, Itinerary, Rides, Distress } from "../../../db/schema.js";
+import { Users, Drivers, Sessions, Itinerary, Rides, Distress } from "../../../drizzle/schema.js";
 
 const dbConfig = { connectionString: "postgresql://ayush:pass@localhost:5432/cabit" };
 const pool = new Pool(dbConfig);

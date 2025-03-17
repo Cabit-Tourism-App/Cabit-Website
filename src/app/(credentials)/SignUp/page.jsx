@@ -9,9 +9,10 @@ import {SignUpCard} from "../../../components/GeneralCards.jsx";
 export default function Login() {
 	return (
 		<div>
-			<NavBarNormal/>
+		
 			<div className="container-m">
 	            {/* Main Content */}
+	            <NavBarNormal/>
 	            <div className="Content">
 					<div>
 						<div className="Normal_Page_Background">
