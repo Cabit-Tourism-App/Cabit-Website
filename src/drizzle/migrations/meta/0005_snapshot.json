@@ -1,6 +1,6 @@
 {
-  "id": "531e5ddb-3ca8-4501-9d37-35ae20afa179",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "99d05755-e6f9-4f40-b371-f8fc0a499645",
+  "prevId": "0a4f973d-e0f3-4fcc-919e-78dd063f4cd3",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -513,12 +513,11 @@
       "name": "sessions",
       "schema": "",
       "columns": {
-        "session_id": {
-          "name": "session_id",
-          "type": "uuid",
+        "id": {
+          "name": "id",
+          "type": "varchar(512)",
           "primaryKey": true,
-          "notNull": true,
-          "default": "gen_random_uuid()"
+          "notNull": true
         },
         "user_id": {
           "name": "user_id",
@@ -526,33 +525,25 @@
           "primaryKey": false,
           "notNull": true
         },
-        "start_time": {
-          "name": "start_time",
+        "role": {
+          "name": "role",
+          "type": "role",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
           "type": "timestamp",
           "primaryKey": false,
-          "notNull": false,
+          "notNull": true,
           "default": "now()"
         },
-        "last_active": {
-          "name": "last_active",
+        "expires_at": {
+          "name": "expires_at",
           "type": "timestamp",
           "primaryKey": false,
-          "notNull": false,
-          "default": "now()"
-        },
-        "session_data": {
-          "name": "session_data",
-          "type": "jsonb",
-          "primaryKey": false,
-          "notNull": false,
-          "default": "'{}'::jsonb"
-        },
-        "session_status": {
-          "name": "session_status",
-          "type": "boolean",
-          "primaryKey": false,
-          "notNull": false,
-          "default": true
+          "notNull": true
         }
       },
       "indexes": {},
@@ -702,6 +693,13 @@
           "notNull": false,
           "default": "now()"
         },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
         "role": {
           "name": "role",
           "type": "role",
@@ -788,7 +786,7 @@
       "name": "role",
       "schema": "public",
       "values": [
-        "client",
+        "user",
         "driver",
         "admin"
       ]

@@ -1,5 +1,12 @@
 "use client"
 import "./GeneralCards.css";
+import { useRouter } from "next/navigation";
+
+import { useState } from "react";
+import { signUp, oAuthSignIn } from "../auth/nextjs/actions";
+
+
+import { signIn } from "../auth/nextjs/actions" ;
 
 
 export  function ImageCards({ height = "350px", width = "80%" ,source= "images/download.jpeg",heading="heading",text="Some sample text use wanna add but kep it concise" }) {
@@ -17,36 +24,69 @@ export  function ImageCards({ height = "350px", width = "80%" ,source= "images/d
   );
 }
 
-export function LoginCard({ height = "350px", width = "80%" }) {
-    return (
-            <div className="Login-card" style={{ height:height, width:width}}>
-                <div className="Login-content" style={{position:"relative"}}>
-                    <div className="logo">
-                        <h1>CabIt</h1>
-                    </div>
-                    <h2 className="Login-heading">Enter Your Email or Phone number</h2>
 
-                    <form>
-                        <input 
-                            className="Input-field" 
-                            placeholder="Email/Mobile no." 
-                            type="text" 
-                        />
-                        <input 
-                            className="Input-field" 
-                            placeholder="Password" 
-                            type="password" 
-                        />
-                        <button className="btn-login">
-                            Login
-                        </button>
-                        <button className="btn-signup">
-                            Signup
-                        </button>
-                    </form>
-                </div>
-            </div>
-    );
+
+
+export function LoginCard({ height = "350px", width = "80%" }) {
+  const router = useRouter()
+  const [emailOrPhone, setEmailOrPhone] = useState("")
+  const [password, setPassword] = useState("")
+  const [error, setError] = useState("")
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    // Simple email validation (basic check)
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(emailOrPhone)) {
+      setError("Please enter a valid email address.")
+      return
+    }
+
+    const error = await signIn({ email: emailOrPhone, password })
+    if (error) {
+      setError(error)
+    } else {
+      router.push("/") // redirect on successful login
+    }
+  }
+
+  return (
+    <div className="Login-card" style={{ height, width }}>
+      <div className="Login-content" style={{ position: "relative" }}>
+        <div className="logo">
+          <h1>CabIt</h1>
+        </div>
+        <h2 className="Login-heading">Enter Your Email</h2>
+
+        <form onSubmit={handleSubmit}>
+          {error && <p className="text-destructive">{error}</p>}
+          <input
+            className="Input-field"
+            placeholder="Email"
+            type="text"
+            value={emailOrPhone}
+            onChange={(e) => setEmailOrPhone(e.target.value)}
+            required
+          />
+          <input
+            className="Input-field"
+            placeholder="Password"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <button type="submit" className="btn-login">
+            Login
+          </button>
+          <button type="button" className="btn-signup" onClick={() => router.push("/SignUp")}>
+            Signup
+          </button>
+        </form>
+      </div>
+    </div>
+  )
 }
 
 
@@ -88,10 +128,41 @@ export function OtpCard() {
 
 
 export function SignUpCard() {
+  const [formData, setFormData] = useState({
+    mobile: "",
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const [error, setError] = useState(null);
+
+  function handleChange(e) {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    if (formData.password !== formData.confirmPassword) {
+      setError("Passwords do not match!");
+      return;
+    }
+
+    const errorMessage = await signUp({
+      phone: formData.mobile,
+      name: formData.name,
+      email: formData.email,
+      password: formData.password,
+    });
+
+    setError(errorMessage);
+  }
+
   return (
     <div className="Signup-Container">
       <div className="Signup-Card">
-        
         {/* Header Section */}
         <div className="Signup-Header">
           <h1>CabIt</h1>
@@ -99,35 +170,67 @@ export function SignUpCard() {
         </div>
 
         {/* Signup Form */}
-        <form className="Signup-Form">
+        <form className="Signup-Form" onSubmit={handleSubmit}>
+          {error && <div className="Signup-Error">{error}</div>}
+
           {/* Mobile Number Input */}
           <div className="Form-Group">
             <label htmlFor="mobile">Mobile</label>
-            <input type="text" id="mobile" placeholder="Enter mobile number" />
+            <input 
+              type="text" 
+              id="mobile" 
+              placeholder="Enter mobile number" 
+              value={formData.mobile}
+              onChange={handleChange}
+            />
           </div>
 
           {/* Name Input */}
           <div className="Form-Group">
             <label htmlFor="name">Name</label>
-            <input type="text" id="name" placeholder="Enter your name" />
+            <input 
+              type="text" 
+              id="name" 
+              placeholder="Enter your name" 
+              value={formData.name}
+              onChange={handleChange}
+            />
           </div>
 
           {/* Email Input */}
           <div className="Form-Group">
             <label htmlFor="email">Email address</label>
-            <input type="email" id="email" placeholder="Enter email" />
+            <input 
+              type="email" 
+              id="email" 
+              placeholder="Enter email" 
+              value={formData.email}
+              onChange={handleChange}
+            />
           </div>
 
           {/* Password Input */}
           <div className="Form-Group">
             <label htmlFor="password">Password</label>
-            <input type="password" id="password" placeholder="Enter password" />
+            <input 
+              type="password" 
+              id="password" 
+              placeholder="Enter password" 
+              value={formData.password}
+              onChange={handleChange}
+            />
           </div>
 
           {/* Confirm Password Input */}
           <div className="Form-Group">
-            <label htmlFor="confirm-password">Confirm Password</label>
-            <input type="password" id="confirm-password" placeholder="Confirm password" />
+            <label htmlFor="confirmPassword">Confirm Password</label>
+            <input 
+              type="password" 
+              id="confirmPassword" 
+              placeholder="Confirm password" 
+              value={formData.confirmPassword}
+              onChange={handleChange}
+            />
           </div>
 
           {/* Signup Button */}
@@ -140,7 +243,7 @@ export function SignUpCard() {
         <div className="Signup-Divider">or</div>
 
         {/* Google Signup Button */}
-        <button className="Google-Button">
+        <button className="Google-Button" onClick={() => oAuthSignIn("google")}>
           Continue with Google
         </button>
       </div>

@@ -2,12 +2,12 @@ import {NavBarNormal} from "../../components/Navbar.jsx"
 
 export default function TouristAttractions() {
     return (
-        <div className="container ">
-              
+        <div className="container-m ">
+            <NavBarNormal/>
                 <div className="container mx-auto p-4">
-        <h1 className="text-5xl   font-bold">Top 50 Tourist Attractions In India</h1>
-        <p className="text-lg">Explore the list of best tourist destinations in India include Taj Mahal, Red Fort, India Gate & many more on MakeMyTrip.</p>
-    </div>
+                    <h1 className="text-5xl   font-bold">Top 50 Tourist Attractions In India</h1>
+                    <p className="text-lg">Explore the list of best tourist destinations in India include Taj Mahal, Red Fort, India Gate & many more on MakeMyTrip.</p>
+                </div>
 
             <div className="d-flex flex-wrap justify-content-center">
                 {/* Card 1 */}

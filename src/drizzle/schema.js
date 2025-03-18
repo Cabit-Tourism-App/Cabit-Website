@@ -2,33 +2,36 @@
 const { 
     pgTable, varchar, text, pgEnum, integer, bigserial, 
     timestamp, decimal, jsonb, smallint, date, uuid, 
-    serial, bigint, boolean 
+    serial, bigint, boolean,primaryKey
 } = require("drizzle-orm/pg-core");
-const { sql } = require("drizzle-orm");
+const { sql,relations } = require("drizzle-orm");
 
-// Enums
-const genderEnum = pgEnum("user_gender", ["male", "female", "other"]);
-const roleEnum = pgEnum("role", ["client", "driver", "admin"]);
-const sessionStatusEnum = pgEnum("session_status", ["active", "expired"]);
-const tripStatusEnum = pgEnum("trip_status", ["completed", "ongoing", "cancelled"]);
-const paymentStatusEnum = pgEnum("payment_status", ["pending", "paid", "failed"]);
-const rideStatusEnum = pgEnum("ride_status", ["ongoing", "successful", "failed"]);
-const distressStatusEnum = pgEnum("distress_status", ["active", "inactive"]);
-
-
-
+// Enums if they don't get exported then
+export const genderEnum = pgEnum("user_gender", ["male", "female", "other"]);
+export const roleEnum = pgEnum("role", ["user", "driver", "admin"]);
+export const sessionStatusEnum = pgEnum("session_status", ["active", "expired"]);
+export const tripStatusEnum = pgEnum("trip_status", ["completed", "ongoing", "cancelled"]);
+export const paymentStatusEnum = pgEnum("payment_status", ["pending", "paid", "failed"]);
+export const rideStatusEnum = pgEnum("ride_status", ["ongoing", "successful", "failed"]);
+export const distressStatusEnum = pgEnum("distress_status", ["active", "inactive"]);
+export const oAuthProviderEnum = pgEnum("OAuthProvider", ["discord", "github"]);
 
 
 
 
 
-const Users = pgTable("users", {
-    user_id: varchar("user_id", { length: 255 }).primaryKey(),
+
+
+const UserTable = pgTable("users", {
+    user_id: uuid('user_id').defaultRandom().primaryKey(),
     user_name: varchar("user_name", { length: 100 }).notNull(),
     user_gender: genderEnum("user_gender"),
-    user_password: varchar("user_password", { length: 255 }).notNull(),
+    user_password: text("user_password"),
+    salt: text("salt"),
+    email: text("email").notNull().unique(),
     user_phone: varchar("user_phone", { length: 15 }).notNull(),
     created_at: timestamp("created_at").defaultNow(),
+    updated_at: timestamp({ withTimezone: true }).notNull().defaultNow().$onUpdate(() => new Date()),
     role: roleEnum("role"),
     client_avg_rating: decimal("client_avg_rating", { precision: 3, scale: 2 }).default(0.0),
     forget_pass_ans: varchar("forget_pass_ans", { length: 255 }).default(null),
@@ -43,7 +46,7 @@ const Users = pgTable("users", {
 
 const Drivers = pgTable("drivers", {
     driver_id: bigint("driver_id", { mode: "number" }).primaryKey(),
-    user_id: varchar("user_id", { length: 255 }).notNull().references(() => Users.user_id),
+    user_id: uuid("user_id").notNull().references(() => UserTable.user_id, { onDelete: "cascade" }),
     license_number: varchar("license_number", { length: 50 }).notNull().unique(),
     vehicle_id: integer("vehicle_id").notNull(), 
     driver_avg_rating: decimal("driver_avg_rating", { precision: 3, scale: 2 }).default(0.0),
@@ -60,25 +63,19 @@ const Drivers = pgTable("drivers", {
 
 
 
-
-
-const Sessions = pgTable("sessions", {
-    session_id: uuid("session_id").defaultRandom().primaryKey(),
-    user_id: varchar("user_id", { length: 255 }).notNull().references(() => Users.user_id),
-    start_time: timestamp("start_time").defaultNow(),
-    last_active: timestamp("last_active").defaultNow(),
-    session_data: jsonb("session_data").default(sql`'{}'::jsonb`),
-    session_status: boolean("session_status").default(true),
-});
-
-
-
+const SessionTable = pgTable("sessions", {
+  id: varchar("id", { length: 512 }).primaryKey(),
+  userId: uuid("user_id").notNull().references(() => UserTable.user_id, { onDelete: "cascade" }),
+  role: roleEnum("role").notNull(), // Using the ENUM type here
+  createdAt: timestamp("created_at", { mode: "date" }).defaultNow().notNull(),
+  expiresAt: timestamp("expires_at", { mode: "date" }).notNull(),
+})
 
 
 
 const Itinerary = pgTable("itinerary", {
     session_id: serial("session_id").primaryKey(),
-    user_id: varchar("user_id", { length: 255 }).notNull().references(() => Users.user_id),
+    user_id: uuid("user_id").notNull().references(() => UserTable.user_id, { onDelete: "cascade" }),
     trip_status: tripStatusEnum("trip_status").notNull(),
     items: jsonb("items").default(sql`'{}'::jsonb`),
     start_date: date("start_date").notNull(),
@@ -93,7 +90,7 @@ const Itinerary = pgTable("itinerary", {
 
 const Rides = pgTable("rides", {
     ride_id: serial("ride_id").primaryKey(),
-    user_id: varchar("user_id", { length: 255 }).notNull().references(() => Users.user_id),
+    user_id: uuid("user_id").notNull().references(() => UserTable.user_id, { onDelete: "cascade" }),
     driver_id: bigint("driver_id", { mode: "number" }).references(() => Drivers.driver_id),
     rating_given: jsonb("rating_given").default(sql`'[]'::jsonb`),
     pickup_location: jsonb("pickup_location").notNull(),
@@ -110,7 +107,7 @@ const Rides = pgTable("rides", {
 
 const Distress = pgTable("distress", {
     ride_id: serial("ride_id").primaryKey().references(() => Rides.ride_id),
-    user_id: varchar("user_id", { length: 255 }).notNull().references(() => Users.user_id),
+    user_id: uuid("user_id").notNull().references(() => UserTable.user_id, { onDelete: "cascade" }),
     driver_id: bigint("driver_id", { mode: "number" }).references(() => Drivers.driver_id),
     pickup_location: jsonb("pickup_location").notNull(),
     drop_location: jsonb("drop_location").notNull(),
@@ -129,11 +126,40 @@ const Distress = pgTable("distress", {
     notes: text("notes")
 });
 
-module.exports = { 
-    Users, 
-    Drivers, 
-    Sessions, 
-    Itinerary, 
-    Rides, 
-    Distress 
-};
+
+
+const UserOAuthAccountTable = pgTable(
+  "user_oauth_accounts",
+  {
+    user_id: uuid('user_id').notNull().references(() => UserTable.user_id, { onDelete: "cascade" }),
+
+    provider: oAuthProviderEnum("provider").notNull(),
+
+    providerAccountId: text().notNull().unique(),
+
+    createdAt: timestamp({ withTimezone: true })
+      .notNull()
+      .defaultNow(),
+
+    updatedAt: timestamp({ withTimezone: true })
+      .notNull()
+      .defaultNow()
+      .$onUpdate(() => new Date()),
+  },
+  (t) => [
+    primaryKey({ columns: [t.providerAccountId, t.provider] })
+  ]
+);
+
+const userOauthAccountRelationships = relations(
+  UserOAuthAccountTable,
+  ({ one }) => ({
+    user: one(UserTable, {
+      fields: [UserOAuthAccountTable.user_id],
+      references: [UserTable.user_id],
+    }),
+  })
+);
+
+
+export { UserTable, Drivers, SessionTable, Itinerary, Rides, Distress, UserOAuthAccountTable,userOauthAccountRelationships };

@@ -1,9 +1,10 @@
-import { userRoles, SessionTable } from "@/drizzle/schema"
+import { roleEnum, SessionTable } from "../../drizzle/schema"
+import { eq } from "drizzle-orm"
 import { z } from "zod"
 import { randomUUID } from "crypto";
 
 import { db } from "@/drizzle/db"
-import { eq } from "drizzle-orm"
+
 
 // 1 day in seconds
 const SESSION_EXPIRATION_SECONDS = 60 * 60 * 24
@@ -11,7 +12,7 @@ const COOKIE_SESSION_KEY = "session-id"
 
 const sessionSchema = z.object({
   userId: z.string(),
-  role: z.enum(userRoles),
+  role: z.enum(roleEnum),
 })
 
 type UserSession = z.infer<typeof sessionSchema>
@@ -55,15 +56,17 @@ export async function createUserSession(
   user: UserSession,
   cookies: Pick<Cookies, "set">
 ) {
+  console.log(cookies)
+
   const sessionId = randomUUID();
+  console.log(user)
   await db.insert(SessionTable).values({
     id: sessionId,
-    userId: user.id,
-    role: user.role,
+    userId: user.user_id,
+    role: user.role ?? 'user',// Default to 'user' if null
     createdAt: new Date(),
     expiresAt: new Date(Date.now() + SESSION_EXPIRATION_SECONDS * 1000),
   })
-
   setCookie(sessionId, cookies)
 }
 

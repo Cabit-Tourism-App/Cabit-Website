@@ -1,5 +1,6 @@
 const { drizzle } = require("drizzle-orm/node-postgres");
 const { Client } = require("pg");
+const schema = require("./schema.js"); // ⬅️ Correct relative path
 
 const client = new Client({
   connectionString: "postgresql://ayush:pass@localhost:5432/cabit",
@@ -7,6 +8,6 @@ const client = new Client({
 
 client.connect();
 
-const db = drizzle(client);
+const db = drizzle(client, { schema }); // ⬅️ schema registered here
 
 module.exports = { db };

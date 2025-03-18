@@ -5,8 +5,50 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1741522783915,
-      "tag": "0000_strange_nocturne",
+      "when": 1742252365388,
+      "tag": "0000_brainy_sleepwalker",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1742252451657,
+      "tag": "0001_fine_the_fallen",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1742252518077,
+      "tag": "0002_slow_lady_bullseye",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1742252779676,
+      "tag": "0003_bright_excalibur",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1742252909404,
+      "tag": "0004_cool_rumiko_fujikawa",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1742252952980,
+      "tag": "0005_peaceful_odin",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1742253828437,
+      "tag": "0006_medical_lady_deathstrike",
       "breakpoints": true
     }
   ]
