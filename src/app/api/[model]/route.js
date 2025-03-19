@@ -1,7 +1,7 @@
 import { drizzle } from "drizzle-orm/node-postgres";
 import { eq, lt, gte, ne } from 'drizzle-orm';
 import { Pool } from "pg";
-import { UserTable, Drivers, SessionTable, Itinerary, Rides, Distress } from "../../../drizzle/schema.js";
+import { UserTable, Drivers, SessionTable, Itinerary, Rides, Distress } from "../../../drizzle/schema";
 
 const dbConfig = { connectionString: "postgresql://ayush:pass@localhost:5432/cabit" };
 const pool = new Pool(dbConfig);
@@ -19,10 +19,7 @@ export async function GET(req,res) {
         const { searchParams } = new URL(req.url, `http://${req.headers.host}`);
         const model = searchParams.get("model");
         const id = searchParams.get("id");
-        console.log(id)
-
-       
-
+        
         if (!tables[model]) return new Response(JSON.stringify({ error: "Invalid model" }), { status: 400 });
 
         const tableInfo = tables[model];
@@ -52,9 +49,9 @@ export async function POST(req, res) {
         }
 
         const tables = {
-            users: Users,
+            users: UserTable,
             drivers: Drivers,
-            sessions: Sessions,
+            sessions: SessionTable,
             itinerary: Itinerary,
             rides: Rides,
             distress: Distress
