@@ -1,9 +1,9 @@
 CREATE TYPE "public"."distress_status" AS ENUM('active', 'inactive');--> statement-breakpoint
 CREATE TYPE "public"."user_gender" AS ENUM('male', 'female', 'other');--> statement-breakpoint
-CREATE TYPE "public"."OAuthProvider" AS ENUM('discord', 'github');--> statement-breakpoint
+CREATE TYPE "public"."oauth_provides" AS ENUM('discord', 'github', 'google');--> statement-breakpoint
 CREATE TYPE "public"."payment_status" AS ENUM('pending', 'paid', 'failed');--> statement-breakpoint
 CREATE TYPE "public"."ride_status" AS ENUM('ongoing', 'successful', 'failed');--> statement-breakpoint
-CREATE TYPE "public"."role" AS ENUM('client', 'driver', 'admin');--> statement-breakpoint
+CREATE TYPE "public"."role" AS ENUM('user', 'driver', 'admin');--> statement-breakpoint
 CREATE TYPE "public"."session_status" AS ENUM('active', 'expired');--> statement-breakpoint
 CREATE TYPE "public"."trip_status" AS ENUM('completed', 'ongoing', 'cancelled');--> statement-breakpoint
 CREATE TABLE "distress" (
@@ -32,7 +32,7 @@ CREATE TABLE "drivers" (
 	"user_id" uuid NOT NULL,
 	"license_number" varchar(50) NOT NULL,
 	"vehicle_id" integer NOT NULL,
-	"driver_avg_rating" numeric(3, 2) DEFAULT 0,
+	"driver_avg_rating" numeric(3, 2) DEFAULT '0.0',
 	"driver_status" boolean DEFAULT false,
 	"efficiency_coefficient" integer,
 	"languages" jsonb,
@@ -74,17 +74,16 @@ CREATE TABLE "rides" (
 );
 --> statement-breakpoint
 CREATE TABLE "sessions" (
-	"session_id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
+	"id" varchar(512) PRIMARY KEY NOT NULL,
 	"user_id" uuid NOT NULL,
-	"start_time" timestamp DEFAULT now(),
-	"last_active" timestamp DEFAULT now(),
-	"session_data" jsonb DEFAULT '{}'::jsonb,
-	"session_status" boolean DEFAULT true
+	"role" "role" NOT NULL,
+	"created_at" timestamp DEFAULT now() NOT NULL,
+	"expires_at" timestamp NOT NULL
 );
 --> statement-breakpoint
 CREATE TABLE "user_oauth_accounts" (
 	"user_id" uuid NOT NULL,
-	"provider" "OAuthProvider" NOT NULL,
+	"provider" "oauth_provides" NOT NULL,
 	"providerAccountId" text NOT NULL,
 	"createdAt" timestamp with time zone DEFAULT now() NOT NULL,
 	"updatedAt" timestamp with time zone DEFAULT now() NOT NULL,
@@ -98,12 +97,15 @@ CREATE TABLE "users" (
 	"user_gender" "user_gender",
 	"user_password" text,
 	"salt" text,
+	"email" text NOT NULL,
 	"user_phone" varchar(15) NOT NULL,
 	"created_at" timestamp DEFAULT now(),
+	"updated_at" timestamp with time zone DEFAULT now() NOT NULL,
 	"role" "role",
-	"client_avg_rating" numeric(3, 2) DEFAULT 0,
+	"client_avg_rating" numeric(3, 2) DEFAULT '0.0',
 	"forget_pass_ans" varchar(255) DEFAULT null,
-	"more_info" jsonb DEFAULT '{}'::jsonb
+	"more_info" jsonb DEFAULT '{}'::jsonb,
+	CONSTRAINT "users_email_unique" UNIQUE("email")
 );
 --> statement-breakpoint
 ALTER TABLE "distress" ADD CONSTRAINT "distress_ride_id_rides_ride_id_fk" FOREIGN KEY ("ride_id") REFERENCES "public"."rides"("ride_id") ON DELETE no action ON UPDATE no action;--> statement-breakpoint

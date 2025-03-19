@@ -17,11 +17,7 @@ export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ provider: string }> }
 ) {
-  console.log("🔥 Google OAuth Callback Triggered"); // See if this prints
-
   const { provider: rawProvider } = await params;
-  console.log("🔥 Provider:", rawProvider);
-
   const code = request.nextUrl.searchParams.get("code")
   const state = request.nextUrl.searchParams.get("state")
   const provider = z.enum(oAuthProviders).parse(rawProvider)
@@ -29,7 +25,7 @@ export async function GET(
   if (typeof code !== "string" || typeof state !== "string") {
     redirect(
       `/sign-in?oauthError=${encodeURIComponent(
-        "Failed to connect. Please try again."
+        "Failed-to-connect.-Please-try-again."
       )}`
     )
   }
@@ -37,6 +33,7 @@ export async function GET(
   const oAuthClient = getOAuthClient(provider)
   try {
     const oAuthUser = await oAuthClient.fetchUser(code, state, await cookies())
+    console.log("OAuth User Info:", oAuthUser)
     const user = await connectUserToAccount(oAuthUser, provider)
     await createUserSession(user, await cookies())
   } catch (error) {
@@ -56,34 +53,38 @@ function connectUserToAccount(
   provider: OAuthProvider
 ) {
   return db.transaction(async trx => {
+    // Check if the user already exists by email
     let user = await trx.query.UserTable.findFirst({
       where: eq(UserTable.email, email),
-      columns: { id: true, role: true },
+      columns: { user_id: true, role: true },
     })
 
     if (user == null) {
+      // Insert new user if not found
       const [newUser] = await trx
         .insert(UserTable)
         .values({
           email: email,
-          name: name,
+          user_name: name,
         })
-        .returning({ id: UserTable.id, role: UserTable.role })
+        .returning({ user_id: UserTable.user_id, role: UserTable.role })
       user = newUser
     }
 
+    // Link OAuth account to the user (ignore duplicates)
     await trx
       .insert(UserOAuthAccountTable)
       .values({
-        provider,
+        user_id: user.user_id,
+        provider: provider,
         providerAccountId: id,
-        userId: user.id,
       })
-      .onConflictDoNothing()
+      .onConflictDoNothing();
 
     return user
   })
 }
+
 export const config = {
   runtime: "nodejs",
 }

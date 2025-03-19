@@ -4,7 +4,7 @@ import { z } from "zod"
 import { redirect } from "next/navigation"
 import { signInSchema, signUpSchema } from "./schemas"
 import { db } from "../../drizzle/db"
-import { OAuthProvider, UserTable } from "../../drizzle/schema.js"
+import { OAuthProvider, UserTable } from "../../drizzle/schema"
 import { eq } from "drizzle-orm"
 import {
   comparePasswords,
