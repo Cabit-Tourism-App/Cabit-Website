@@ -1,4 +1,5 @@
-'use client'
+'use client';
+import { useRouter } from 'next/navigation';
 
 export default function PlaceCard({
   width = '22rem',
@@ -17,6 +18,17 @@ export default function PlaceCard({
   onExplore = () => {},
   onPlanTrip = () => {}
 }) {
+
+  const router = useRouter();
+  const handlePlanTrip = () => {
+    const parts = title.split(',').map(part => part.trim());
+    const mainPlace = parts[0];
+    const city = parts[1];
+    const whereTo = city;
+
+    router.push(`/PlanTrip?whereTo=${encodeURIComponent(whereTo)}`);
+  };
+
   return (
     <div className="card m-3 shadow rounded overflow-hidden" style={{ width }}>
       <div style={{ height: `${imageHeight}px`, width: '100%', position: 'relative' }}>
@@ -55,7 +67,7 @@ export default function PlaceCard({
           <div 
             className="btn w-50"
             style={{ backgroundColor: badgeBg, color: badgeTextColor }}
-            onClick={onPlanTrip}
+            onClick={handlePlanTrip}
           >
             {planText}
           </div>

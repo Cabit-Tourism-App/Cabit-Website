@@ -3,15 +3,26 @@ import PlaceCard from "./tourcard.jsx"
 export default function TouristAttractions() {
     return (
         <div className="container-m ">
-        
             <NavBarNormal/>
-            <div className="Normal_Page_Background">
-                <div className="container mx-auto p-4">
-                    <h1 className="text-5xl   font-bold">Top 50 Tourist Attractions In India</h1>
-                    <p className="text-lg">Explore the list of best tourist destinations in India include Taj Mahal, Red Fort, India Gate & many more on MakeMyTrip.</p>
+            <div className="Normal_Page_Background" >
+               <div 
+                  className="relative"
+                  style={{ 
+                    background: 'linear-gradient(to top, #FFEB66, white)',
+                    boxShadow: '0 100px 10px rgba(255, 235, 102, 0.9)' 
+                  }}
+                >
+                  <div className="relative z-10 p-4">
+                    <h1 className="text-5xl font-bold">Top 50 Tourist Attractions In India</h1>
+                    <p className="text-lg">
+                      Explore the list of best tourist destinations in India include Taj Mahal, Red Fort, India Gate & many more on MakeMyTrip.
+                    </p>
+                  </div>
                 </div>
 
-            <div className="d-flex flex-wrap justify-center">
+
+
+            <div className="d-flex flex-wrap justify-center" style={{ background: 'linear-gradient(to top, #FFEB66, white)' }} >
                   <PlaceCard 
                     imageSrc = "/images/destinations/1.avif"
                     badgeText="1"

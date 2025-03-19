@@ -1,15 +1,15 @@
 import { drizzle } from "drizzle-orm/node-postgres";
 import { eq, lt, gte, ne } from 'drizzle-orm';
 import { Pool } from "pg";
-import { Users, Drivers, Sessions, Itinerary, Rides, Distress } from "../../../drizzle/schema.js";
+import { UserTable, Drivers, SessionTable, Itinerary, Rides, Distress } from "../../../drizzle/schema.js";
 
 const dbConfig = { connectionString: "postgresql://ayush:pass@localhost:5432/cabit" };
 const pool = new Pool(dbConfig);
 const db = drizzle(pool);
  const tables = {
-            users: { table: Users, idField: "user_id" },
+            users: { table: UserTable, idField: "user_id" },
             drivers: { table: Drivers, idField: "driver_id" },
-            sessions: { table: Sessions, idField: "session_id" },
+            sessions: { table: SessionTable, idField: "id" },
             itinerary: { table: Itinerary, idField: "session_id" },
             rides: { table: Rides, idField: "ride_id" },
             distress: { table: Distress, idField: "ride_id" }
