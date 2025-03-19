@@ -4,7 +4,7 @@ import {NavBarNormal} from "../../../components/Navbar.jsx"
 
 import {OtpCard} from "../../../components/GeneralCards.jsx";
 
-
+import Foot from "../../../components/Footer.jsx";
 
 export default function Login() {
 	return (
@@ -29,6 +29,7 @@ export default function Login() {
 					</div>
 				</div>
 			</div>
+			<Foot/>
 		</div>
 	);
 }

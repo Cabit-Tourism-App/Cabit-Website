@@ -8,6 +8,10 @@ import Link from "next/link";
 import ImageBox from "../components/ImageBox";
 import {NavBarHome} from "../components/Navbar.jsx"
 import SearchBar from "../components/SearchBar.jsx"
+import Foot from "../components/Footer.jsx";
+
+
+
 export default function Home() {
 	return (
 		<div className="container-m">
@@ -210,6 +214,7 @@ export default function Home() {
 						</div> 
 					</div>
 				</div>
+				<Foot/>
 			</div>
 
 	);

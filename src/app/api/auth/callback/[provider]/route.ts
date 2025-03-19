@@ -45,7 +45,7 @@ export async function GET(
     )
   }
 
-  redirect("/")
+  redirect("/Dashboard")
 }
 
 function connectUserToAccount(

@@ -6,6 +6,8 @@ import ImageBox from "../../components/ImageBox.jsx";
 import "./page.css"
 import {NavBarNormal} from "../../components/Navbar.jsx"
 
+import Foot from "../../components/Footer.jsx";
+
 const MapComponent = dynamic(() => import("../../components/Map.jsx"), {
     ssr: false,
 });
@@ -40,6 +42,7 @@ export default function CabBook() {
 						<div className = "col-1"></div>
 					</div>
 				</div>
+			<Foot/>
 		</div>
     );
 }

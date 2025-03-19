@@ -6,7 +6,7 @@ import { NavBarHome } from "../../components/Navbar.jsx";
 import Form from "./first.jsx";
 import Options from "./second.jsx";
 import { useSearchParams } from 'next/navigation';
-
+import Foot from "../../components/Footer.jsx";
 
 export default function PlanTrip() {
   const [showOptions, setShowOptions] = useState(false);
@@ -38,6 +38,7 @@ export default function PlanTrip() {
           </div>
         </div>
       </div>
+      <Foot/>
     </div>
   );
 }

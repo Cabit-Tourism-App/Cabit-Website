@@ -3,7 +3,7 @@ import CarousaL from "../../components/Carousal.jsx"
 import AboutCard from "./aboutcard.jsx";
 import AboutCardrev from "./aboutcardrev.jsx";
 import {NavBarHome} from "../../components/Navbar.jsx"
-
+import Foot from "../../components/Footer.jsx";
 export default function AboutUs() {
 	return (
 		<div className="container-m">
@@ -21,6 +21,7 @@ export default function AboutUs() {
 						</div>
 					</div>
 			</div>
+			<Foot/>
 		</div>
 	);
 }

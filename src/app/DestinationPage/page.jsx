@@ -1,7 +1,7 @@
 import "./page.css";
 import Form from "./form.jsx"
 import {NavBarNormal} from "../../components/Navbar.jsx"
-
+import Foot from "../../components/Footer.jsx";
 
 export default function DestinationPick() {
   return (
@@ -66,6 +66,7 @@ export default function DestinationPick() {
 				      </div>
 				    </div>
 				</div>
+				<Foot/>
 			</div>
   );
 }

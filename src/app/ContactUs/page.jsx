@@ -3,7 +3,7 @@ import CarousaL from "../../components/Carousal.jsx"
 import {NavBarNormal} from "../../components/Navbar.jsx"
 import Form from "./form.jsx"
 import Share from "./share.jsx"
-
+import Foot from "../../components/Footer.jsx";
 export default function ContactUs() {
 	return (
 
@@ -33,6 +33,7 @@ export default function ContactUs() {
 						</div>
 					</div>
 				</div>
+				<Foot/>
 			</div>
 
 	);

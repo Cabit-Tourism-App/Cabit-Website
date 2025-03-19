@@ -2,7 +2,7 @@ import Form from "./form.jsx";
 import Bill from "./Bill.jsx";
 import { NavBarNormal } from "../../components/Navbar.jsx";
 import "./page.css"
-
+import Foot from "../../components/Footer.jsx";
 export default function PaymentPage() {
   return (
     <div className="container-m">
@@ -56,6 +56,7 @@ export default function PaymentPage() {
           </div>
         </div>
       </div>
+      <Foot/>
     </div>
   );
 }

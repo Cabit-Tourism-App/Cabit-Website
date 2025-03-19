@@ -1,5 +1,6 @@
 import {NavBarNormal} from "../../components/Navbar.jsx"
 import PlaceCard from "./tourcard.jsx"
+import Foot from "../../components/Footer.jsx";
 export default function TouristAttractions() {
     return (
         <div className="container-m ">
@@ -327,6 +328,7 @@ export default function TouristAttractions() {
 
               </div>
         </div>
+        <Foot/>
         </div>
     );
 }

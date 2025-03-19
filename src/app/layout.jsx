@@ -26,7 +26,7 @@ export default function Layout({ children }) {
         <div className="Back-Ground rows">
           <div className="gradient" />
           {children}
-          <Foot />
+          
         </div>
       </body>
     </html>
