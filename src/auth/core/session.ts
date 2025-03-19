@@ -3,7 +3,7 @@ import { eq } from "drizzle-orm"
 import { z } from "zod"
 import { randomUUID } from "crypto";
 
-import { db } from "@/drizzle/db"
+import { db } from "../../drizzle/db"
 
 
 // 1 day in seconds

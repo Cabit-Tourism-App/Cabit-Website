@@ -14,7 +14,7 @@ export const tripStatusEnum = pgEnum("trip_status", ["completed", "ongoing", "ca
 export const paymentStatusEnum = pgEnum("payment_status", ["pending", "paid", "failed"]);
 export const rideStatusEnum = pgEnum("ride_status", ["ongoing", "successful", "failed"]);
 export const distressStatusEnum = pgEnum("distress_status", ["active", "inactive"]);
-export const oAuthProviderEnum = pgEnum("OAuthProvider", ["discord", "github"]);
+export const OAuthProvider = pgEnum("OAuthProvider", ["discord", "github","google"]);
 
 
 
@@ -133,7 +133,7 @@ const UserOAuthAccountTable = pgTable(
   {
     user_id: uuid('user_id').notNull().references(() => UserTable.user_id, { onDelete: "cascade" }),
 
-    provider: oAuthProviderEnum("provider").notNull(),
+    provider: OAuthProvider("provider").notNull(),
 
     providerAccountId: text().notNull().unique(),
 

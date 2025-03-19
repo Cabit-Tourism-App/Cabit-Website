@@ -1,4 +1,4 @@
-import { env } from "@/data/env/server"
+import { env } from "../../../data/env/server"
 import { OAuthClient } from "./base"
 import { z } from "zod"
 
