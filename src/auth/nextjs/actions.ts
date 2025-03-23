@@ -80,8 +80,9 @@ const data = result.data; // Now data is guaranteed to be valid
 
   } 
   catch (error) {
-   
+     console.log(error)
     return "Unable to create account3"
+
 
   }
 

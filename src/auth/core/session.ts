@@ -11,9 +11,10 @@ const SESSION_EXPIRATION_SECONDS = 60 * 60 * 24
 const COOKIE_SESSION_KEY = "session-id"
 
 const sessionSchema = z.object({
-  userId: z.string(),
-  role: z.enum(roleEnum.enumValues as [string, ...string[]]),
-})
+  user_id: z.string(),
+  role: z.enum(roleEnum.enumValues as [ 'user', 'driver', 'admin' ]),
+});
+
 
 type UserSession = z.infer<typeof sessionSchema>
 
@@ -65,15 +66,12 @@ export async function createUserSession(
   user: UserSession,
   cookies: Pick<Cookies, "set">
 ) {
-  console.log("Creating session for user:", user);
-
   const sessionId = randomUUID();
 
   await db.insert(SessionTable).values({
     id: sessionId,
     userId: user.user_id,
-    role: (user.role ?? "user") as "user" | "driver" | "admin", // Default to 'user' if null
-    createdAt: new Date(),
+    role: (user.role ?? "user") as typeof roleEnum.enumValues[number],
     expiresAt: new Date(Date.now() + SESSION_EXPIRATION_SECONDS * 1000),
   });
 
