@@ -40,35 +40,48 @@ export async function getUserFromSession(cookies: Pick<Cookies, "get">) {
   return await getUserSessionById(sessionId)
 }
 
+
+
 export async function updateUserSessionData(
   user: UserSession,
   cookies: Pick<Cookies, "get">
 ) {
-  const sessionId = cookies.get(COOKIE_SESSION_KEY)?.value
-  if (!sessionId) return null
-    console.log("found the culprit",user)
+  const sessionId = cookies.get(COOKIE_SESSION_KEY)?.value;
+  if (!sessionId) return null;
+
+  console.log("Updating session for user:", user);
+
   await db.update(SessionTable)
-    .set({ role: user.role })
-    .where(eq(SessionTable.id, sessionId))
+    .set({
+      role: (user.role ?? 'user') as 'user' | 'driver' | 'admin',
+    })
+    .where(eq(SessionTable.id, sessionId));
 }
+
+
+
 
 export async function createUserSession(
   user: UserSession,
   cookies: Pick<Cookies, "set">
 ) {
-  console.log(cookies)
+  console.log("Creating session for user:", user);
 
   const sessionId = randomUUID();
-  console.log(user)
+
   await db.insert(SessionTable).values({
     id: sessionId,
     userId: user.user_id,
-    role: user.role ?? 'user',// Default to 'user' if null
+    role: (user.role ?? "user") as "user" | "driver" | "admin", // Default to 'user' if null
     createdAt: new Date(),
     expiresAt: new Date(Date.now() + SESSION_EXPIRATION_SECONDS * 1000),
-  })
-  setCookie(sessionId, cookies)
+  });
+
+  setCookie(sessionId, cookies);
 }
+
+
+
 
 export async function updateUserSessionExpiration(
   cookies: Pick<Cookies, "get" | "set">
