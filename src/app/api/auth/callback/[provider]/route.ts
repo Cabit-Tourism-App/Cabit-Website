@@ -57,12 +57,13 @@ interface OAuthUser {
   name: string
 }
 
+type UserRole = "user" | "driver" | "admin"
+
 async function connectUserToAccount(
   { id, email, name }: OAuthUser,
   provider: OAuthProvider
-): Promise<{ user_id: number; role: string }> {
+): Promise<{ user_id: number; role: UserRole }> {
   return await db.transaction(async trx => {
-    // Strict type on returned user
     let user = await trx.query.UserTable.findFirst({
       where: eq(UserTable.email, email),
       columns: { user_id: true, role: true },
@@ -83,7 +84,12 @@ async function connectUserToAccount(
       user = newUser
     }
 
-    // Link OAuth account (ignore duplicates)
+    // Validate and assert role
+    const allowedRoles: UserRole[] = ["user", "driver", "admin"]
+    if (!allowedRoles.includes(user.role as UserRole)) {
+      throw new Error(`Invalid role fetched from DB: ${user.role}`)
+    }
+
     await trx
       .insert(UserOAuthAccountTable)
       .values({
@@ -93,7 +99,8 @@ async function connectUserToAccount(
       })
       .onConflictDoNothing()
 
-    return user
+    // ✅ Type narrowed to UserRole
+    return { user_id: user.user_id, role: user.role as UserRole }
   })
 }
 
