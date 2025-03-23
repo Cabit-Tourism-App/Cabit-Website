@@ -1,4 +1,4 @@
-import { roleEnum, SessionTable } from "../../drizzle/schema.ts"
+import { roleEnum, SessionTable } from "../../drizzle/schema"
 import { eq } from "drizzle-orm"
 import { z } from "zod"
 import { randomUUID } from "crypto";
