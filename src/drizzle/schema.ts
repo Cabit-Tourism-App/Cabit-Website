@@ -30,7 +30,7 @@ export const UserTable = pgTable("users", {
   user_phone: varchar("user_phone", { length: 15 }),
   created_at: timestamp("created_at").defaultNow(),
   updated_at: timestamp({ withTimezone: true }).notNull().defaultNow().$onUpdate(() => new Date()),
-  role: roleEnum("role"),
+  role: roleEnum("role").notNull(),
   client_avg_rating: decimal("client_avg_rating", { precision: 3, scale: 2 }).default("0.0"),
   forget_pass_ans: varchar("forget_pass_ans", { length: 255 }).default(null),
   more_info: jsonb("more_info").default(sql`'{}'::jsonb`),

@@ -68,10 +68,13 @@ export async function createUserSession(
 ) {
   const sessionId = randomUUID();
 
+  // Ensure that role is never null
+  const userRole = user.role ?? "user"; // default to 'user' if role is null
+
   await db.insert(SessionTable).values({
     id: sessionId,
     userId: user.user_id,
-    role: (user.role ?? "user") as typeof roleEnum.enumValues[number],
+    role: userRole as typeof roleEnum.enumValues[number],
     expiresAt: new Date(Date.now() + SESSION_EXPIRATION_SECONDS * 1000),
   });
 

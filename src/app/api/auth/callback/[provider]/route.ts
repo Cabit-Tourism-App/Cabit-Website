@@ -37,7 +37,7 @@ export async function GET(
     const user = await connectUserToAccount(oAuthUser, provider)
     await createUserSession(user, await cookies())
   } catch (error) {
-    console.error(error)
+  console.error(error);
     redirect(
       `/sign-in?oauthError=${encodeURIComponent(
         "Failed to connect. Please try again."
@@ -48,42 +48,46 @@ export async function GET(
   redirect("/Dashboard")
 }
 
-function connectUserToAccount(
-  { id, email, name }: { id: string; email: string; name: string },
+async function connectUserToAccount(
+  { id, email, name }: OAuthUser,
   provider: OAuthProvider
-) {
-  return db.transaction(async trx => {
-    // Check if the user already exists by email
+): Promise<{ user_id: string; role: UserRole }> {
+  return await db.transaction(async trx => {
     let user = await trx.query.UserTable.findFirst({
       where: eq(UserTable.email, email),
       columns: { user_id: true, role: true },
     })
 
-    if (user == null) {
-      // Insert new user if not found
+    if (!user) {
       const [newUser] = await trx
         .insert(UserTable)
         .values({
-          email: email,
+          email,
           user_name: name,
         })
         .returning({ user_id: UserTable.user_id, role: UserTable.role })
+
+      if (!newUser) {
+        throw new Error("Failed to create new user during OAuth connection.")
+      }
       user = newUser
     }
 
-    // Link OAuth account to the user (ignore duplicates)
     await trx
       .insert(UserOAuthAccountTable)
       .values({
         user_id: user.user_id,
-        provider: provider,
+        provider,
         providerAccountId: id,
       })
-      .onConflictDoNothing();
+      .onConflictDoNothing()
 
-    return user
+    // Ensure role is valid and non-null before returning
+    const userRole: UserRole = user.role ?? "user"; // default to 'user' if role is null
+    return { user_id: user.user_id, role: userRole }
   })
 }
+
 
 export const config = {
   runtime: "nodejs",
