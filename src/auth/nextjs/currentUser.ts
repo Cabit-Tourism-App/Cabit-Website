@@ -2,9 +2,9 @@ import { cookies } from "next/headers"
 import { getUserFromSession } from "../core/session"
 import { cache } from "react"
 import { redirect } from "next/navigation"
-import { db } from "@/drizzle/db"
+import { db } from "../../drizzle/db"
 import { eq } from "drizzle-orm"
-import { UserTable } from "@/drizzle/schema"
+import { UserTable } from "../../drizzle/schema"
 
 async function getUserFromDb(id: string) {
   console.log("Fetching user from DB for ID:", id)
