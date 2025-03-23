@@ -1,0 +1,149 @@
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  background-color: white;
+  color: black;
+
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.header h1 {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/************************************SIDE BAR******************************************/
+.dashboard-sidebar {
+  width: 200px;
+  background-color: #000;
+  color: #fff;
+  height: 125vh;
+  padding: 10px;
+  box-sizing: border-box;
+
+}
+
+.dashboard-sidebar.show {
+  display: block;
+}
+
+.dashboard-sidebar.hide {
+  display: none;
+}
+
+.dashboard-sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0px;
+}
+
+.dashboard-logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+
+}
+
+.dashboard-arrow {
+  color: #ffe54c;
+  margin-left: 4px;
+}
+
+.dashboard-icon {
+  color: #fff;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.DashNavigationLinks {
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-dropdown-btn {
+  background-color: #ffe54c;
+  color: #000;
+  padding: 10px 10px;
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  text-align: left;
+  font-weight: bold;
+}
+
+.dashboard-dropdown-btn:hover {
+  background-color: #f0d93c;
+}
+
+
+
+.dashboard-overview-content {
+  background-color: #000;
+  color: #fff;
+  padding-left: 15px;
+  margin-bottom: 10px;
+
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px);  /* Slight upwards stack effect */
+  transition: max-height 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+}
+
+.dashboard-overview-content.open {
+  max-height: 500px;  /* Big enough to show all */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dashboard-overview-content b {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.dashboard-overview-content p, li {
+  margin: 5px 0;
+  cursor: pointer;
+  color: white;
+}
+
+.dashboard-overview-content p:hover,li:hover {
+  color: #ffe54c;
+}
+
+
+.sidebar-toggle {
+  width: 15px;
+  background-color: #ffe54c;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.3s ease;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.15);
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+/* When Sidebar is Open - Shrink toggle and move top-right */
+.sidebar-toggle.shrink {
+  height: 40px;
+  width: 40px;
+  border-radius: 10px;
+  position: absolute;
+  top: 5px;
+  left: 200px;  /* Adjust based on sidebar width */
+}
+/*********************************************************/

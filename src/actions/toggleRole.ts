@@ -1,9 +1,9 @@
 "use server"
 
-import { updateUserSessionData } from "@/auth/core/session"
-import { getCurrentUser } from "@/auth/nextjs/currentUser"
-import { db } from "@/drizzle/db"
-import { UserTable } from "@/drizzle/schema"
+import { updateUserSessionData } from "../auth/core/session"
+import { getCurrentUser } from "../auth/nextjs/currentUser"
+import { db } from "../drizzle/db"
+import { UserTable } from "../drizzle/schema"
 import { eq } from "drizzle-orm"
 import { cookies } from "next/headers"
 
