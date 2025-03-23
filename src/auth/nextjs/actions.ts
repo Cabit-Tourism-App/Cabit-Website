@@ -16,9 +16,9 @@ import { createUserSession, removeUserFromSession } from "../core/session"
 import { getOAuthClient } from "../core/oauth/base"
 
 export async function signIn(unsafeData: z.infer<typeof signInSchema>) {
- 
-  const { success, data } = signInSchema.safeParse(unsafeData)
 
+  const { success, data } = signInSchema.safeParse(unsafeData)
+ 
   if (!success) return "Unable to log you in"
 
 
@@ -35,7 +35,7 @@ export async function signIn(unsafeData: z.infer<typeof signInSchema>) {
 
   const isCorrectPassword = await comparePasswords({
     hashedPassword: user.user_password,
-    password: data.password,
+    password: data.user_password,
     salt: user.salt,
   })
 

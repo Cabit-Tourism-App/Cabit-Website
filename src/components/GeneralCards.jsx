@@ -43,7 +43,7 @@ export function LoginCard({ height = "350px", width = "80%" }) {
       return
     }
 
-    const error = await signIn({ email: emailOrPhone, password })
+    const error = await signIn({ email: emailOrPhone, user_password:password })
     if (error) {
       setError(error)
     } else {
