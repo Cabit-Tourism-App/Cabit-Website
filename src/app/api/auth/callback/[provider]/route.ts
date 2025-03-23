@@ -13,73 +13,85 @@ import { redirect } from "next/navigation"
 import { NextRequest } from "next/server"
 import { z } from "zod"
 
+// Strong typing for OAuth params
+interface OAuthParams {
+  provider: string
+}
+
 export async function GET(
   request: NextRequest,
-  { params }: { params: Promise<{ provider: string }> }
-) {
-  const { provider: rawProvider } = await params;
-  const code = request.nextUrl.searchParams.get("code")
-  const state = request.nextUrl.searchParams.get("state")
-  const provider = z.enum(oAuthProviders).parse(rawProvider)
+  { params }: { params: Promise<OAuthParams> }
+): Promise<void> {
+  const { provider: rawProvider } = await params
+
+  const code: string | null = request.nextUrl.searchParams.get("code")
+  const state: string | null = request.nextUrl.searchParams.get("state")
+
+  // Validate provider strictly
+  const provider: OAuthProvider = z.enum(oAuthProviders).parse(rawProvider)
 
   if (typeof code !== "string" || typeof state !== "string") {
-    redirect(
-      `/sign-in?oauthError=${encodeURIComponent(
-        "Failed-to-connect.-Please-try-again."
-      )}`
-    )
+    redirect(`/sign-in?oauthError=${encodeURIComponent("Failed-to-connect.-Please-try-again.")}`)
   }
 
   const oAuthClient = getOAuthClient(provider)
+
   try {
     const oAuthUser = await oAuthClient.fetchUser(code, state, await cookies())
     console.log("OAuth User Info:", oAuthUser)
+
     const user = await connectUserToAccount(oAuthUser, provider)
     await createUserSession(user, await cookies())
   } catch (error) {
     console.error(error)
-    redirect(
-      `/sign-in?oauthError=${encodeURIComponent(
-        "Failed to connect. Please try again."
-      )}`
-    )
+    redirect(`/sign-in?oauthError=${encodeURIComponent("Failed to connect. Please try again.")}`)
   }
 
   redirect("/Dashboard")
 }
 
-function connectUserToAccount(
-  { id, email, name }: { id: string; email: string; name: string },
+// Strict typing for OAuth User object
+interface OAuthUser {
+  id: string
+  email: string
+  name: string
+}
+
+async function connectUserToAccount(
+  { id, email, name }: OAuthUser,
   provider: OAuthProvider
-) {
-  return db.transaction(async trx => {
-    // Check if the user already exists by email
+): Promise<{ user_id: number; role: string }> {
+  return await db.transaction(async trx => {
+    // Strict type on returned user
     let user = await trx.query.UserTable.findFirst({
       where: eq(UserTable.email, email),
       columns: { user_id: true, role: true },
     })
 
-    if (user == null) {
-      // Insert new user if not found
+    if (!user) {
       const [newUser] = await trx
         .insert(UserTable)
         .values({
-          email: email,
+          email,
           user_name: name,
         })
         .returning({ user_id: UserTable.user_id, role: UserTable.role })
+
+      if (!newUser) {
+        throw new Error("Failed to create new user during OAuth connection.")
+      }
       user = newUser
     }
 
-    // Link OAuth account to the user (ignore duplicates)
+    // Link OAuth account (ignore duplicates)
     await trx
       .insert(UserOAuthAccountTable)
       .values({
         user_id: user.user_id,
-        provider: provider,
+        provider,
         providerAccountId: id,
       })
-      .onConflictDoNothing();
+      .onConflictDoNothing()
 
     return user
   })
