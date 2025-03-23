@@ -69,7 +69,7 @@ async function _getCurrentUser({
 
   if (withFullUser) {
     console.log("Fetching full user from DB for ID:", user.user_id)
-    const fullUser = await getUserFromDb(user.userId)
+    const fullUser = await getUserFromDb(user.user_id)
 
     if (fullUser == null) {
       console.error("ERROR: User found in session but missing in DB")
