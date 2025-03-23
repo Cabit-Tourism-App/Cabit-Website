@@ -48,7 +48,7 @@ export async function GET(
   const oAuthClient = getOAuthClient(provider);
   try {
     const oAuthUser = await oAuthClient.fetchUser(code, state, await cookies());
-    console.log("OAuth// OAuth user role type
+    console.log("OAuth// OAuth user role type");
 type UserRole = "user" | "driver" | "admin" ;
 
 export async function GET(
