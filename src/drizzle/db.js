@@ -1,8 +1,11 @@
+const { z } = require("zod");
+const { env } = require("../data/env/server");
 const { drizzle } = require("drizzle-orm/node-postgres");
 const { Client } = require("pg");
-const schema = require("./schema.ts"); 
+const schema = require("./schema");  // ✅ remove .ts extension
+
 const client = new Client({
-  connectionString: "postgresql://ayush:pass@localhost:5432/cabit",
+  connectionString: env.DB_URL,
 });
 
 client.connect();
