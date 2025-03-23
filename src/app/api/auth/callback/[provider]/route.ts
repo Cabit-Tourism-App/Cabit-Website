@@ -13,10 +13,19 @@ import { redirect } from "next/navigation"
 import { NextRequest } from "next/server"
 import { z } from "zod"
 
-// Strong typing for OAuth params
+// OAuth params type
 interface OAuthParams {
   provider: string
 }
+
+// OAuth user type
+interface OAuthUser {
+  id: string
+  email: string
+  name: string
+}
+
+type UserRole = "user" | "driver" | "admin" | null
 
 export async function GET(
   request: NextRequest,
@@ -27,20 +36,22 @@ export async function GET(
   const code: string | null = request.nextUrl.searchParams.get("code")
   const state: string | null = request.nextUrl.searchParams.get("state")
 
-  // Validate provider strictly
+  // Strict provider validation
   const provider: OAuthProvider = z.enum(oAuthProviders).parse(rawProvider)
 
-  if (typeof code !== "string" || typeof state !== "string") {
+  if (!code || !state) {
     redirect(`/sign-in?oauthError=${encodeURIComponent("Failed-to-connect.-Please-try-again.")}`)
   }
 
   const oAuthClient = getOAuthClient(provider)
 
   try {
-    const oAuthUser = await oAuthClient.fetchUser(code, state, await cookies())
+    const oAuthUser: OAuthUser = await oAuthClient.fetchUser(code, state, await cookies())
     console.log("OAuth User Info:", oAuthUser)
 
     const user = await connectUserToAccount(oAuthUser, provider)
+
+    // ✅ user_id is UUID string, role can be nullable
     await createUserSession(user, await cookies())
   } catch (error) {
     console.error(error)
@@ -50,19 +61,10 @@ export async function GET(
   redirect("/Dashboard")
 }
 
-// Strict typing for OAuth User object
-interface OAuthUser {
-  id: string
-  email: string
-  name: string
-}
-
-type UserRole = "user" | "driver" | "admin"
-
 async function connectUserToAccount(
   { id, email, name }: OAuthUser,
   provider: OAuthProvider
-): Promise<{ user_id: number; role: UserRole }> {
+): Promise<{ user_id: string; role: UserRole }> {
   return await db.transaction(async trx => {
     let user = await trx.query.UserTable.findFirst({
       where: eq(UserTable.email, email),
@@ -84,12 +86,6 @@ async function connectUserToAccount(
       user = newUser
     }
 
-    // Validate and assert role
-    const allowedRoles: UserRole[] = ["user", "driver", "admin"]
-    if (!allowedRoles.includes(user.role as UserRole)) {
-      throw new Error(`Invalid role fetched from DB: ${user.role}`)
-    }
-
     await trx
       .insert(UserOAuthAccountTable)
       .values({
@@ -99,8 +95,8 @@ async function connectUserToAccount(
       })
       .onConflictDoNothing()
 
-    // ✅ Type narrowed to UserRole
-    return { user_id: user.user_id, role: user.role as UserRole }
+    // ✅ Ensure correct typing
+    return { user_id: user.user_id, role: user.role }
   })
 }
 
