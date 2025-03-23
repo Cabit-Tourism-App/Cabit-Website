@@ -11,7 +11,7 @@ async function getUserFromDb(id: string) {
   
   const user = await db.query.UserTable.findFirst({
     columns: { user_id: true, email: true, role: true, user_name: true },
-    where: eq(UserTable.id, id),
+    where: eq(UserTable.user_id, id),
   })
   
   console.log("DB User Result:", user)
