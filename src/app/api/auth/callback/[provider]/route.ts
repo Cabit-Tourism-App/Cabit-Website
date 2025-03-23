@@ -75,12 +75,14 @@ async function connectUserToAccount(
 
     if (!user) {
       const [newUser] = await trx
-        .insert(UserTable)
-        .values({
-          email,
-          user_name: name,
-        })
-        .returning({ user_id: UserTable.user_id, role: UserTable.role });
+      .insert(UserTable)
+      .values({
+        email,
+        user_name: name,
+        role: "user", // Provide default role here
+      })
+      .returning({ user_id: UserTable.user_id, role: UserTable.role });
+
 
       if (!newUser) {
         throw new Error("Failed to create new user during OAuth connection.");
