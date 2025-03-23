@@ -23,7 +23,7 @@ export async function signIn(unsafeData: z.infer<typeof signInSchema>) {
 
 
 
- console.log(data)
+
   const user = await db.query.UserTable.findFirst({
     columns: { user_password: true, salt: true, user_id: true, email: true, role: true },
     where: eq(UserTable.email, data.email),
