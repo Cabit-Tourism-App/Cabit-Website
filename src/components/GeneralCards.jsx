@@ -151,10 +151,10 @@ export function SignUpCard() {
     }
 
     const errorMessage = await signUp({
-      phone: formData.mobile,
-      name: formData.name,
+      user_phone: formData.mobile,
+      user_name: formData.name,
       email: formData.email,
-      password: formData.password,
+      user_password: formData.password,
     });
 
     setError(errorMessage);

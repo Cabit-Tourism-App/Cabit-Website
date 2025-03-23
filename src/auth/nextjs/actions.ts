@@ -46,12 +46,14 @@ export async function signIn(unsafeData: z.infer<typeof signInSchema>) {
 }
 
 export async function signUp(unsafeData: z.infer<typeof signUpSchema>) {
+
   const result = signUpSchema.safeParse(unsafeData);
   
 if (!result.success) {
   console.error("Schema validation failed:", result.error.format());
   return "Need more that 8 letter password";
 }
+
 
 const data = result.data; // Now data is guaranteed to be valid
 
@@ -64,14 +66,14 @@ const data = result.data; // Now data is guaranteed to be valid
 
   if (existingUser != null) return "Account already exists for this email"
 
-    console.log(data)
+ 
   try {
 
     const salt1 = generateSalt()
 
-    const hashedPassword = await hashPassword(data.password, salt1)
+    const hashedPassword = await hashPassword(data.user_password, salt1)
 
-    const [user] = await db.insert(UserTable).values({user_name: data.name,email: data.email,user_password: hashedPassword,salt:salt1,user_phone: data.phone,}).returning({user_id: UserTable.user_id,role: UserTable.role,});
+    const [user] = await db.insert(UserTable).values({user_name: data.user_name,email: data.email,user_password: hashedPassword,salt:salt1,user_phone: data.user_phone,}).returning({user_id: UserTable.user_id,role: UserTable.role,});
 
     if (user == null) return "Unable to create account2"
 
