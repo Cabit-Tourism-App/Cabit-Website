@@ -181,7 +181,7 @@ function createState(cookies: Pick<Cookies, "set">) {
     secure: true,
     httpOnly: true,
     sameSite: "lax",
-    expires: Date.now() + COOKIE_EXPIRATION_SECONDS * 1000,
+    expires: new Date(Date.now() + COOKIE_EXPIRATION_SECONDS * 1000),
   })
   return state
 }
