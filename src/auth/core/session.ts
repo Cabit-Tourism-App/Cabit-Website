@@ -12,7 +12,7 @@ const COOKIE_SESSION_KEY = "session-id"
 
 const sessionSchema = z.object({
   userId: z.string(),
-  role: z.enum(roleEnum),
+  role: z.enum(roleEnum.enumValues as [string, ...string[]]),
 })
 
 type UserSession = z.infer<typeof sessionSchema>
