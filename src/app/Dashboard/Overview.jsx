@@ -5,7 +5,7 @@ const Overview = () => {
     return (
         <div>
       <div className="bg-gray-100 p-6 rounded-lg  mb-6">
-                  
+
                 <div className="md:flex justify-between items-center">
                   <div className="flex space-x-4">
                     <button className="bg-gray-300 p-2 rounded-lg text-black flex items-center space-x-2"><FaPlane /><span>Flights</span></button>

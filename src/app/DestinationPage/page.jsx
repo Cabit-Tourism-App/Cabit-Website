@@ -13,7 +13,7 @@ export default function DestinationPick() {
 					<div className="Normal_Page_Background">
 				        <div className="row justify-content-between align-items-start">
 
-
+				        <div className = "Flex_Row">
 				          <div className="col-md-6 text-start header-section">
 				            <h1 className="display-4 fw-bolder text-dark">
 				              Effortless Travel Planning!
@@ -41,7 +41,7 @@ export default function DestinationPick() {
 
 
 
-
+				        </div>
 
 
 
@@ -53,9 +53,14 @@ export default function DestinationPick() {
 				            { text: "Zero hidden charges", img: "7aL-FU5a9jvs-i2fWI7Xy2fZGpmoFj2I6IEJKDNjjag.jpg" }
 				          ].map((feature, index) => (
 				            <div key={index} className="col-md-3 text-center mb-4">
-				              <img alt={feature.text} className="feature-icon" src={`https://storage.googleapis.com/a1aa/image/${feature.img}`} />
-				              <p className="fw-bolder">{feature.text}</p>
-				            </div>
+							  <img 
+							    alt={feature.text} 
+							    className="feature-icon mx-auto d-block" 
+							    src={`https://storage.googleapis.com/a1aa/image/${feature.img}`} 
+							  />
+							  <p className="fw-bolder">{feature.text}</p>
+							</div>
+
 				          ))}
 				        </div>
 

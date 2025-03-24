@@ -31,10 +31,10 @@ export default function Home() {
 							<br />
 							<div className="row">
 								<div className="Flex_Row">
-									<ImageCards width="50vh" height="70vh" heading = "Tour Planner" text = "Customize your trip with a personalized itinerary." source = "/images/homepage/col1.jpeg"/>
-									<ImageCards width="50vh" height="70vh" heading = "Cab Booking"  text = "Book cabs with drivers who understand your language for a smooth journey." source = "/images/homepage/col2.jpeg"/>
-									<ImageCards width="50vh" height="70vh" heading = "Best Destinations "  text = "Discover top travel spots in India, handpicked for every type of traveler." source = "/images/homepage/col3.jpeg"/>
-									<ImageCards width="50vh" height="70vh" heading = "No Lang-Barriers"  text = "Overcome language challenges with in-app translation tools." source = "/images/homepage/col4.jpeg"/>
+									<Link href="/DestinationPage" style={{ textDecoration: 'none' }}> <ImageCards width="50vh" height="70vh" heading = "Tour Planner" text = "Customize your trip with a personalized itinerary." source = "/images/homepage/col1.jpeg"/></Link>
+									<Link href="/CabBooking" style={{ textDecoration: 'none' }}> <ImageCards width="50vh" height="70vh" heading = "Cab Booking"  text = "Book cabs with drivers who understand your language for a smooth journey." source = "/images/homepage/col2.jpeg"/></Link>
+									<Link href="/VisitingPlaces" style={{ textDecoration: 'none' }}> <ImageCards width="50vh" height="70vh" heading = "Best Destinations "  text = "Discover top travel spots in India, handpicked for every type of traveler." source = "/images/homepage/col3.jpeg"/></Link>
+									<Link href="/" style={{ textDecoration: 'none' }}><ImageCards width="50vh" height="70vh" heading = "No Lang-Barriers"  text = "Overcome language challenges with in-app translation tools." source = "/images/homepage/col4.jpeg"/></Link>
 								</div>
 							</div>
 							<br />

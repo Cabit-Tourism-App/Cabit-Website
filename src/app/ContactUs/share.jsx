@@ -1,7 +1,7 @@
 import "./share.css"
 export default function ShareSlide(){
 	return (
-		<div className = "container">
+		<div className = "container p-0">
 		<div className = "ShareContainer">
 			<div className = "row">
 				<h3 style = {{fontWeight:"bold"}}>Contact Information</h3>

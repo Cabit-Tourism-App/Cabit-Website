@@ -8,7 +8,7 @@
     backdrop-filter: blur(10px); /* Glass effect */
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth animation */
  /* Places it above Home_Page_Background */
- 	 overflow-y: auto;  /* Enables vertical scrolling */
+ 	 overflow-y: hidden;  /* Enables vertical scrolling */
     max-height: 400px;
 }
 .Image-Card-Design::-webkit-scrollbar {

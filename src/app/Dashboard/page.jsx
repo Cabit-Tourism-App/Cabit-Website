@@ -13,8 +13,8 @@ export default function Dashboard() {
   const [sidebarVisible, setSidebarVisible] = useState(true);
 
   return (
-    <div className="dashboard-container">
-        {/* Sidebar */}
+    <div className="dashboard-wrapper">   {/* 🔥 Wrapping everything */}
+      <div className="dashboard-container">
         <Sidebar 
           activeSection={activeSection} 
           setActiveSection={setActiveSection} 
@@ -22,31 +22,26 @@ export default function Dashboard() {
           setSidebarVisible={setSidebarVisible}
         />
 
-        {/* Vertical Toggle Button */}
-       <div 
-        className={`sidebar-toggle ${sidebarVisible ? 'shrink' : ''}`} 
-        onClick={() => setSidebarVisible(!sidebarVisible)}
-      >
-        {sidebarVisible ? "×" : ">"}
-      </div>
-
-
-
-
-
-      <div className="main-content">
-       
-        <div className="header">
-          <h1>Trip to Lucknow</h1>
+        <div 
+          className={`sidebar-toggle ${sidebarVisible ? 'shrink' : ''}`} 
+          onClick={() => setSidebarVisible(!sidebarVisible)}
+        >
+          {sidebarVisible ? "×" : ">"}
         </div>
 
-        {activeSection === "Overview" && <Overview />}
-        {activeSection === "PlacesTovisit" && <PlacesTovisit />}
-        {activeSection === "Explore" && <Explore />}
-        {activeSection === "Notes" && <Notes />}
-      </div>
+        <div className="main-content">
+          <div className="header">
+            <h1>Trip to Lucknow</h1>
+          </div>
 
-      <MapSection />
+          {activeSection === "Overview" && <Overview />}
+          {activeSection === "PlacesTovisit" && <PlacesTovisit />}
+          {activeSection === "Explore" && <Explore />}
+          {activeSection === "Notes" && <Notes />}
+        </div>
+
+        <MapSection />
+      </div>
     </div>
   );
 }

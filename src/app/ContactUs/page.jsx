@@ -16,7 +16,7 @@ export default function ContactUs() {
 						<div className = "row">
 						<div className = "col-1"></div>
 							<div className = "col-10">
-								<div className = "WhiteCard" style = {{ padding:"5px" ,minWidth:"900px"}}>
+								<div className = "WhiteCard" style = {{ padding:"3px" ,minWidth:"900px"}}>
 									<div className = "row">
 										<div className = "col-5">
 											<Share/>
