@@ -1,7 +1,7 @@
 import { drizzle } from "drizzle-orm/node-postgres";
 import { eq, lt, gte, ne } from 'drizzle-orm';
 import { Pool } from "pg";
-import { UserTable, Drivers, SessionTable, Itinerary, Rides, Distress } from "../../../drizzle/schema";
+import { UserTable, Drivers, SessionTable, Itinerary, Rides, Distress ,contactUsQueries} from "../../../drizzle/schema";
 
 const dbConfig = { connectionString: "postgresql://ayush:pass@localhost:5432/cabit" };
 const pool = new Pool(dbConfig);
@@ -12,7 +12,8 @@ const db = drizzle(pool);
             sessions: { table: SessionTable, idField: "id" },
             itinerary: { table: Itinerary, idField: "session_id" },
             rides: { table: Rides, idField: "ride_id" },
-            distress: { table: Distress, idField: "ride_id" }
+            distress: { table: Distress, idField: "ride_id" },
+            contactus: { table: contactUsQueries, idField: "query_id"},
         };
 export async function GET(req,res) {
     try {
@@ -54,7 +55,8 @@ export async function POST(req, res) {
             sessions: SessionTable,
             itinerary: Itinerary,
             rides: Rides,
-            distress: Distress
+            distress: Distress,
+            contactus:contactUsQueries
         };
 
         if (!tables[model]) {

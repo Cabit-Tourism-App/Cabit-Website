@@ -17,6 +17,7 @@ export const distressStatusEnum = pgEnum("distress_status", ["active", "inactive
 export const oAuthProviders = ["discord", "github","google"] as const
 export type OAuthProvider = (typeof oAuthProviders)[number]
 export const oAuthProviderEnum = pgEnum("oauth_provides", oAuthProviders)
+export const issueEnum = pgEnum('issue_type', ['Trip Issue','Cab Issue','Payment Issue','App Issue','Other',]);
 
 
 
@@ -140,3 +141,12 @@ export const userOauthAccountRelationships = relations(
   })
 );
 
+
+export const contactUsQueries = pgTable('contactus_queries', {
+  query_id: uuid('query_id').defaultRandom().primaryKey(),
+  user_name: varchar('user_name', { length: 100 }).notNull(),
+  email: varchar('email', { length: 150 }).notNull(),
+  user_phone: varchar('user_phone', { length: 15 }),
+  issue: issueEnum('issue').notNull(),
+  query: text('query').notNull(),
+});
