@@ -1,0 +1,93 @@
+.voice-container {
+  text-align: center;
+  padding: 50px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+  max-width: 800px;
+  margin: auto;
+  border: 1px solid black;
+}
+
+.brand {
+  font-size: 32px;
+  font-weight: bold;
+  color: #000;
+}
+
+.brand .arrow {
+  color: #5667FD;
+}
+
+.instruction {
+  margin: 20px 0;
+  color: #3c3c63;
+  font-size: 18px;
+}
+
+.mic-button {
+  margin: 30px 0;
+}
+
+.mic-circle {
+  background-color: #FFE75E;
+  border: none;
+  border-radius: 50%;
+  padding: 30px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.mic-circle:hover {
+  transform: scale(1.1);
+}
+
+.converter-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin: 40px 0;
+}
+
+.convert-btn {
+  border: 2px solid #666;
+  padding: 15px 25px;
+  border-radius: 10px;
+  background-color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.arrow-right {
+  font-size: 24px;
+}
+
+.bottom-nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  color: #7676A7;
+  font-size: 16px;
+  margin-top: 50px;
+}
+
+.bottom-nav span {
+  cursor: pointer;
+}
+
+.bottom-nav span:hover {
+  text-decoration: underline;
+}
+.convert-dropdown {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: white;
+  cursor: pointer;
+}
+
+.convert-dropdown:focus {
+  outline: none;
+  border-color: #333;
+}

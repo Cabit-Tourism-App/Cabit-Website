@@ -22,7 +22,7 @@ export default function CabBook() {
     setStartLocation(startLocation)
     console.log("End:", endLocation);
     setEndLocation(endLocation)
-    // Add your actual logic to draw the route here
+    
   };
     return (
     	<div className="container-m">

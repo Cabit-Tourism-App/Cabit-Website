@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Overview from "./Overview";
 import Notes from "./Notes";
-import MapSection from "./Map";
+import MapBox from "../../components/Map.jsx"
 import PlacesTovisit from "./PlacesTovisit";
 import Explore from "./Explore";
 import Sidebar from "./sidebar";
@@ -13,7 +13,7 @@ export default function Dashboard() {
   const [sidebarVisible, setSidebarVisible] = useState(true);
 
   return (
-    <div className="dashboard-wrapper">   {/* 🔥 Wrapping everything */}
+    <div className="dashboard-wrapper">   
       <div className="dashboard-container">
         <Sidebar 
           activeSection={activeSection} 
@@ -30,7 +30,7 @@ export default function Dashboard() {
         </div>
 
         <div className="main-content">
-          <div className="header">
+          <div className="header" style={{"textAlign":"center"}}>
             <h1>Trip to Lucknow</h1>
           </div>
 
@@ -39,8 +39,9 @@ export default function Dashboard() {
           {activeSection === "Explore" && <Explore />}
           {activeSection === "Notes" && <Notes />}
         </div>
-
-        <MapSection />
+        <div className="" style={{"width":"300px"}}>
+          <MapBox />
+        </div>
       </div>
     </div>
   );

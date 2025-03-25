@@ -113,7 +113,7 @@ export async function removeUserFromSession(
 function setCookie(sessionId: string, cookies: Pick<Cookies, "set">) {
   cookies.set(COOKIE_SESSION_KEY, sessionId, {
     secure: true,
-    httpOnly: true,
+   // httpOnly: true,    temporaray doing this make it true befor deployment
     sameSite: "lax",
     expires: new Date(Date.now() + SESSION_EXPIRATION_SECONDS * 1000),
   })

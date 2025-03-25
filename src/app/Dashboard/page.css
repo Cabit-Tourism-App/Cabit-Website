@@ -20,7 +20,7 @@
 /************************************SIDE BAR******************************************/
 .dashboard-sidebar {
   width: 200px;
-  background-color: #000;
+  background-color: rgba(0, 0, 0, 1); 
   color: #fff;
   height: 100vh;
   padding: 10px;

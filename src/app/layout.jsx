@@ -8,6 +8,8 @@ import { Poppins } from 'next/font/google';
 // Import Bootstrap from CDN for the latest version
 import "../styles/globals.css";
 import "./layout.css";
+// app/layout.js
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 // Font adjustments
 const poppins = Poppins({

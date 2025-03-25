@@ -10,7 +10,7 @@ export default function TripPlan() {
           <FaRegTimesCircle className="buttonIcon" /> I Don't Have a Plan
         </button>
         <button className="optionButton">
-          <FaFileExcel className="buttonIcon" /> MS Excel
+          <FaFileExcel className="buttonIcon" /> Use Ai Generated Plan
         </button>
         <button className="optionButton">
           <FaRegStickyNote className="buttonIcon" /> Notion
