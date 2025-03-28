@@ -128,5 +128,5 @@ export default function MapComponent({ startLocation, endLocation }) {
     if (startLocation && endLocation) drawRoute();
   }, [startLocation, endLocation]);
 
-  return <div id="map" style={{ height: "500px", width: "100%", borderRadius: "10px" }}></div>;
+  return <div id="map" style={{ height: "100%", width: "100%", borderRadius: "10px" }}></div>;
 }

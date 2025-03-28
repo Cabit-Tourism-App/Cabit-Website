@@ -21,7 +21,7 @@ export default function BookForm({ onFormSubmit }) {
 
 
   const hereApiKey = env.NEXT_PUBLIC_HERE_API_KEY;
-  console.log("ufhfchczxfcgvhjblvh",hereApiKey)
+ 
 
 
 

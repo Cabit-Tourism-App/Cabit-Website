@@ -1,0 +1,31 @@
+.trip-overview-container {
+  background-color: #000;
+  padding: 20px;
+  color: white;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+
+.places-subtitle {
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  margin: 10px;
+  text-align: left;
+  width: 100%;
+  max-width: 500px;
+
+}
+.places-scroll-container {
+  display: flex;
+  gap: 15px; /* Space between cards */
+  overflow-x: auto; /* Enables horizontal scrolling */
+  white-space: nowrap; /* Prevents wrapping */
+  padding-bottom: 10px;
+  scrollbar-width: none; /* Hide scrollbar in Firefox */
+  margin: 5px;
+}
+
+.places-scroll-container::-webkit-scrollbar {
+  display: none; /* Hide scrollbar in Chrome/Safari */
+}

@@ -5,7 +5,13 @@
   color: black;
 
 }
-
+.dashboard-map-container{
+  width:250;
+  margin:20px;
+  margin-left: 0px;
+  border-radius: 10px;
+  border:1px solid black;
+}
 .main-content {
   flex: 1;
   padding: 20px;
@@ -16,6 +22,17 @@
   font-size: 28px;
   font-weight: bold;
 }
+
+.main-content {
+  overflow-x: auto; /* Enable horizontal scrolling */
+  white-space: nowrap; /* Prevent wrapping */
+  scrollbar-width: none; /* Hide scrollbar in Firefox */
+}
+
+.main-content::-webkit-scrollbar {
+  display: none; /* Hide scrollbar in Chrome/Safari */
+}
+
 
 /************************************SIDE BAR******************************************/
 .dashboard-sidebar {

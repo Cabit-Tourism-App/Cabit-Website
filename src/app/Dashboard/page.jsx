@@ -1,7 +1,7 @@
 'use client';
 import { useState } from "react";
 import Overview from "./Overview";
-import Notes from "./Notes";
+import AiSection from "./Notes";
 import MapBox from "../../components/Map.jsx"
 import PlacesTovisit from "./PlacesTovisit";
 import Explore from "./Explore";
@@ -37,9 +37,9 @@ export default function Dashboard() {
           {activeSection === "Overview" && <Overview />}
           {activeSection === "PlacesTovisit" && <PlacesTovisit />}
           {activeSection === "Explore" && <Explore />}
-          {activeSection === "Notes" && <Notes />}
+          {activeSection === "Ask AI" && <AiSection />}
         </div>
-        <div className="" style={{"width":"300px"}}>
+        <div className="dashboard-map-container">
           <MapBox />
         </div>
       </div>

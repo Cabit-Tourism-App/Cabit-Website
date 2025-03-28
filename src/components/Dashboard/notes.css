@@ -1,0 +1,75 @@
+.note-box {
+  width: 100%;
+  background-color: black;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.note-label {
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.note-input-wrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.note-input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: white;
+  color: #4a4a4a;
+  outline: none;
+}
+
+.note-add-btn {
+  background-color: #e94057;
+  color: white;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.note-add-btn:hover {
+  background-color: #000;
+}
+
+.note-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.notes-item {
+  background-color: white;
+  color: black;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+}
+.notes-item:hover {
+  color: black;
+}
+
+.note-remove-btn {
+  color: red;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.note-remove-btn:hover {
+  color: darkred;
+}

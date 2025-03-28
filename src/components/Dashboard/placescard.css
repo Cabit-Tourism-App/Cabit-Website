@@ -1,0 +1,76 @@
+.place-card-item {
+ 
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  display: inline-block;
+  width: 180px; 
+  flex-shrink: 0; 
+}
+
+.place-card-item:hover {
+  transform: translateY(-5px); /* Slight pop effect on hover */
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+/* Ensure the card takes up full space */
+.place-card-item {
+  display: flex;
+  flex-direction: column;
+  width: 180px;
+  height: 220px; /* Adjust height as needed */
+  border-radius: 15px;
+  overflow: hidden; /* Ensures no extra space */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Image should cover the top part fully */
+.place-image-style {
+  width: 100%;
+  height: 120px; /* Adjust height to take full space */
+  object-fit: cover;
+  flex-shrink: 0; /* Prevents shrinking */
+}
+
+/* Footer should stick to the bottom */
+.place-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: #f9f9f9;
+  width: 100%;
+  flex-grow: 1; /* Pushes content down */
+}
+
+.place-name-text {
+  font-size: 15px;
+  color: black;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100px;
+}
+
+.place-add-button {
+  background: black;
+  color: white;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.place-add-button:hover {
+  background: #333;
+  transform: scale(1.1);
+}

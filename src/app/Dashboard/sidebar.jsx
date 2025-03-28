@@ -25,7 +25,7 @@ export default function Sidebar({ activeSection, setActiveSection, sidebarVisibl
           <p onClick={() => setActiveSection("Overview")}>Overview</p>
           <p onClick={() => setActiveSection("PlacesTovisit")}>Places to Visit</p>
           <p onClick={() => setActiveSection("Explore")}>Explore</p>
-          <p onClick={() => setActiveSection("Notes")}>Notes</p>
+          <p onClick={() => setActiveSection("Ask AI")}>Ask AI</p>
         </div>
 
         {/* Trip Planner */}
